@@ -1,7 +1,7 @@
 # Architecture
 
-:heavy_check_mark:_(COMMENT) Add a description of the architecture of your application and create a diagram like the one below. Link to the diagram in this document._
+![eShopOnContainers Architecture](architecture.png)
 
-![eShopOnContainers Architecture](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/media/eshoponcontainers-development-architecture.png)
-
-[Source](https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/introduce-eshoponcontainers-reference-app)
+## Communicatie
+De app bestaat uit 3 microservices die elk onderling synchroon met elkaar communiceren via OpenFeign,
+ alsook een extra NotificationService die via een message bus asynchroon zal communiceren met de Review Service voor notificaties te sturen.
