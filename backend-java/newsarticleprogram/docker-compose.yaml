@@ -1,0 +1,10 @@
+name: newsarticleprogram
+services:
+  postservice_db:
+    container_name: postservice_db
+    image: mariadb:latest
+    ports:
+      - "3316:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pxl
+      MYSQL_DATABASE: postservice_db
