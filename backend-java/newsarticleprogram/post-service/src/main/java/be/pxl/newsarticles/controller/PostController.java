@@ -3,6 +3,7 @@ package be.pxl.newsarticles.controller;
 import be.pxl.newsarticles.domain.Post;
 import be.pxl.newsarticles.dto.post.PostRequest;
 import be.pxl.newsarticles.dto.post.PostResponse;
+import be.pxl.newsarticles.exception.ResourceNotFoundException;
 import be.pxl.newsarticles.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,10 @@ public class PostController {
 
     @PostMapping()
     public ResponseEntity<Post> savePostAsDraft(@RequestBody PostRequest postRequest) {
-        return new ResponseEntity<>(postService.savePostAsDraft(postRequest), HttpStatus.CREATED);
+        try {
+            return new ResponseEntity<>(postService.savePostAsDraft(postRequest), HttpStatus.CREATED);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

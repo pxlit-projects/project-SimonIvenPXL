@@ -11,4 +11,5 @@ public interface IPostService {
     Post createPost(PostRequest postRequest);
     List<PostResponse> getAllPosts();
     Post savePostAsDraft(PostRequest postRequest);
+
 }

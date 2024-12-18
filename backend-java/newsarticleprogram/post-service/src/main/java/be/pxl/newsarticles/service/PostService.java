@@ -54,7 +54,7 @@ public class PostService implements IPostService {
         List<Post> posts = postRepository.findAll();
 
         if (posts.isEmpty()) {
-            return new ArrayList<>();
+            throw new ResourceNotFoundException("Er zijn nog geen posts aangemaakt");
         }
 
         return posts.stream().map(p -> mapper.map(p, PostResponse.class)).toList();
