@@ -1,5 +1,7 @@
 package be.pxl.newsarticles.domain;
 
+import be.pxl.newsarticles.enumdata.PostStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,13 +24,10 @@ public class Post {
     private String title;
     private String content;
     private String author;
-    private LocalDateTime momentOfPublication;
 
-    public Post(String title, String content, String author) {
-        this.title = title;
-        this.content = content;
-        this.author = author;
-        this.momentOfPublication = LocalDateTime.now();
+    @Enumerated(EnumType.STRING)
+    private PostStatus status;
 
-    }
+    @JsonProperty("publishedDate")
+    private LocalDateTime publishedDate;
 }

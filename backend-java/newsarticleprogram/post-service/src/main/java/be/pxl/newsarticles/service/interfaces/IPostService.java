@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface IPostService {
 
-    void createPost(PostRequest postRequest);
+    Post createPost(PostRequest postRequest);
     List<PostResponse> getAllPosts();
+    Post savePostAsDraft(PostRequest postRequest);
 }

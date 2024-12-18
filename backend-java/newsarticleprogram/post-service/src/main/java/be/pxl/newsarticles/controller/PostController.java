@@ -18,13 +18,17 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping()
-    public ResponseEntity<Void> createPost(@RequestBody PostRequest postRequest) {
-        postService.createPost(postRequest);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<Post> createPost(@RequestBody PostRequest postRequest) {
+        return new ResponseEntity<>(postService.createPost(postRequest), HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<PostResponse>> getPosts() {
         return new ResponseEntity<>(postService.getAllPosts(), HttpStatus.OK);
+    }
+
+    @PostMapping()
+    public ResponseEntity<Post> savePostAsDraft(@RequestBody PostRequest postRequest) {
+        return new ResponseEntity<>(postService.savePostAsDraft(postRequest), HttpStatus.CREATED);
     }
 }

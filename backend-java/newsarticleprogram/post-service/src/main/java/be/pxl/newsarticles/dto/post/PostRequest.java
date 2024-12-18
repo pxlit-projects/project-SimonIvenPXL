@@ -1,15 +1,20 @@
 package be.pxl.newsarticles.dto.post;
 
 
+import be.pxl.newsarticles.enumdata.PostStatus;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class PostRequest {
     @NotBlank(message = "Title can't be empty!")
     private String title;
@@ -20,7 +25,9 @@ public class PostRequest {
     @NotBlank(message = "Author must be someone!")
     private String author;
 
+    @NotBlank(message = "Post must have a status!")
+    private PostStatus status;
+
     @FutureOrPresent
-    @NotBlank(message = "Date of creation must be present!")
     private LocalDateTime publishedDate;
 }
