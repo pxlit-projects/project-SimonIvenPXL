@@ -10,6 +10,9 @@ public interface IPostService {
 
     Post createPost(PostRequest postRequest);
     List<PostResponse> getAllPosts();
+    PostResponse getPostById(long id);
+    PostResponse getDraftById(long id);
     Post savePostAsDraft(PostRequest postRequest);
+    
 
 }

@@ -23,7 +23,9 @@
 	</developers>
 	<modules>
 		<module>post-service</module>
-	</modules>
+        <module>review-service</module>
+        <module>review-service</module>
+    </modules>
 	<scm>
 		<connection/>
 		<developerConnection/>

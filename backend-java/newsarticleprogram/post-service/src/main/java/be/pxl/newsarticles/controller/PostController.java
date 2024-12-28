@@ -28,10 +28,27 @@ public class PostController {
         return new ResponseEntity<>(postService.getAllPosts(), HttpStatus.OK);
     }
 
-    @PostMapping()
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<PostResponse> getPostById(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(postService.getPostById(id), HttpStatus.OK);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }    }
+
+    @PostMapping(path = "/draft")
     public ResponseEntity<Post> savePostAsDraft(@RequestBody PostRequest postRequest) {
         try {
             return new ResponseEntity<>(postService.savePostAsDraft(postRequest), HttpStatus.CREATED);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping(path = "/draft/{id}")
+    public ResponseEntity<PostResponse> getDraftById(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(postService.getDraftById(id), HttpStatus.OK);
         } catch (ResourceNotFoundException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

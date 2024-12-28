@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -59,4 +60,40 @@ public class PostService implements IPostService {
 
         return posts.stream().map(p -> mapper.map(p, PostResponse.class)).toList();
     }
+
+    @Override
+    public PostResponse getPostById(long id) {
+        Optional<Post> post = postRepository.findById(id);
+
+        if (post.isEmpty()) {
+            throw new ResourceNotFoundException("No post found with ID " + id);
+        }
+
+        return PostResponse.builder()
+                .title(post.get().getTitle())
+                .content(post.get().getContent())
+                .author(post.get().getAuthor())
+                .status(post.get().getStatus())
+                .publishedDate(post.get().getPublishedDate())
+                .build();
+    }
+
+    @Override
+    public PostResponse getDraftById(long id) {
+        Optional<Post> draft = postDraftRepository.findById(id);
+
+        if (draft.isEmpty()) {
+            throw new ResourceNotFoundException("No post found with ID " + id);
+        }
+
+        return PostResponse.builder()
+                .title(draft.get().getTitle())
+                .content(draft.get().getContent())
+                .author(draft.get().getAuthor())
+                .status(draft.get().getStatus())
+                .publishedDate(draft.get().getPublishedDate())
+                .build();
+    }
+
+
 }
