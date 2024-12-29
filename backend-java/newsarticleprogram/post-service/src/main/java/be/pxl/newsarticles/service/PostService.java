@@ -20,7 +20,6 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class PostService implements IPostService {
-    private final PostDraftRepository postDraftRepository;
     private final PostRepository postRepository;
     private final ModelMapper mapper;
 
@@ -35,19 +34,6 @@ public class PostService implements IPostService {
                 .build();
 
         return postRepository.save(post);
-    }
-
-    @Override
-    public Post savePostAsDraft(PostRequest postRequest) {
-        Post post = Post.builder()
-                .title(postRequest.getTitle())
-                .content(postRequest.getContent())
-                .author(postRequest.getAuthor())
-                .status(PostStatus.DRAFT)
-                .publishedDate(LocalDateTime.now().withNano(0))
-                .build();
-
-        return postDraftRepository.save(post);
     }
 
     @Override
@@ -77,23 +63,5 @@ public class PostService implements IPostService {
                 .publishedDate(post.get().getPublishedDate())
                 .build();
     }
-
-    @Override
-    public PostResponse getDraftById(long id) {
-        Optional<Post> draft = postDraftRepository.findById(id);
-
-        if (draft.isEmpty()) {
-            throw new ResourceNotFoundException("No post found with ID " + id);
-        }
-
-        return PostResponse.builder()
-                .title(draft.get().getTitle())
-                .content(draft.get().getContent())
-                .author(draft.get().getAuthor())
-                .status(draft.get().getStatus())
-                .publishedDate(draft.get().getPublishedDate())
-                .build();
-    }
-
 
 }
