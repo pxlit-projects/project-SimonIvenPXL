@@ -1,0 +1,14 @@
+<div>
+  <div class="add-article" (click)="onAddPostClick()">
+    <button>Add new article</button>
+  </div>
+  <div class="posts">
+    @for (post of this.posts; track post.id) {
+      <div class="post-individual">
+        <p><b>Title:</b> {{post.title}}</p>
+        <p><b>Content:</b> {{post.content}}</p>
+        <p><b>Author:</b> {{post.author}}</p>
+      </div>
+    }
+  </div>
+</div>
