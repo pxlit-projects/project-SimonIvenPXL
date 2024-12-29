@@ -11,4 +11,14 @@
       </div>
     }
   </div>
+  <p>=====================</p>
+  <div class="posts">
+    @for (draft of this.drafts; track draft.id) {
+      <div class="post-individual">
+        <p><b>Title:</b> {{draft.title}}</p>
+        <p><b>Content:</b> {{draft.content}}</p>
+        <p><b>Author:</b> {{draft.author}}</p>
+      </div>
+    }
+  </div>
 </div>

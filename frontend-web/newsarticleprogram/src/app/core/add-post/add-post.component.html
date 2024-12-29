@@ -1,2 +1,22 @@
-<p>add-post works!</p>
 <button (click)="onReturn()">Go back</button>
+<div class="add-post-container">
+  <form (ngSubmit)="savePost()" [formGroup]="newPostForm">
+    <div class="input-field">
+      <label for="title">Title</label>
+      <input class="input" type="text" id="title" name="title" formControlName="title">
+    </div>
+    <br/>
+    <div class="input-field">
+      <label for="content">Content</label>
+      <input class="input" type="text" id="content" name="content" formControlName="content">
+    </div>
+    <br/>
+    <div class="input-field">
+      <label for="author">Author</label>
+      <input class="input" type="text" id="author" name="author" formControlName="author">
+    </div>
+    <br/>
+    <button class="submit-button" type="submit">ADD POST</button>
+    <button class="submit-draft" type="button" (click)="saveDraft()">SAVE DRAFT</button>
+  </form>
+</div>
