@@ -45,7 +45,15 @@ export class PostOverviewComponent implements OnInit{
     return this.postService.getDrafts();
   }
 
-  onAddPostClick() {
+  getPostDetails(id : number) {
+    this.router.navigate([`editor/posts/${id}`]);
+  }
+
+  getDraftDetails(id : number) {
+    this.router.navigate([`editor/drafts/${id}`]);
+  }
+
+  AddPost() {
     this.router.navigate(['editor/posts/add']).then(r => console.log(r));
   }
 }

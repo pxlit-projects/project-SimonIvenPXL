@@ -25,4 +25,8 @@ export class PostService {
   createDraft(postRequest : PostRequest) {
     return this.http.post<Post>(`http://localhost:8081/drafts`, postRequest);
   }
+
+  getPostDetails(id : number) : Observable<Post> {
+    return this.http.get<Post>(`http://localhost:8081/posts/${id}`);
+  }
 }
