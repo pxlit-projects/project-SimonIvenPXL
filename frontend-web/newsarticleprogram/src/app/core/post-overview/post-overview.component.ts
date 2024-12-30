@@ -17,43 +17,31 @@ export class PostOverviewComponent implements OnInit{
   postsObservable: Observable<Post[]> ;
   posts: Post[] = [];
 
-  draftsObservable: Observable<Post[]> ;
-  drafts: Post[] = []
-
   constructor(
     private postService : PostService,
   ) {
     this.postsObservable = this.getPosts();
-    this.draftsObservable = this.getDrafts();
   }
 
   ngOnInit() {
     this.postsObservable.subscribe(posts => {
       this.posts = posts;
     });
-
-    this.draftsObservable.subscribe(drafts => {
-      this.drafts = drafts;
-    })
   }
 
   getPosts() : Observable<Post[]>  {
     return this.postService.getPosts();
   }
 
-  getDrafts() : Observable<Post[]>  {
-    return this.postService.getDrafts();
-  }
-
   getPostDetails(id : number) {
     this.router.navigate([`editor/posts/${id}`]);
   }
 
-  getDraftDetails(id : number) {
-    this.router.navigate([`editor/drafts/${id}`]);
+  addPost() {
+    this.router.navigate(['editor/posts/add']).then(r => console.log(r));
   }
 
-  AddPost() {
-    this.router.navigate(['editor/posts/add']).then(r => console.log(r));
+  goToDrafts() {
+    this.router.navigate(['editor/drafts']);
   }
 }

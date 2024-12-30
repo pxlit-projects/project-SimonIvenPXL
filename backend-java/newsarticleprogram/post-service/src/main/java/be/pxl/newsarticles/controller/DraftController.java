@@ -53,4 +53,13 @@ public class DraftController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @PostMapping("/{id}/publish")
+    public ResponseEntity<Post> publishDraft(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(draftService.publishDraft(id), HttpStatus.CREATED);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

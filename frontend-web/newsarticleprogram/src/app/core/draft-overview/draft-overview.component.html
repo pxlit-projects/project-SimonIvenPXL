@@ -1,0 +1,14 @@
+<div>
+  <div class="add-article">
+    <button (click)="backToPosts()">Back to posts</button>
+  </div>
+  <div class="drafts">
+    @for (draft of this.drafts; track draft.id) {
+      <div class="draft-individual" (click)="getDraftDetails(draft.id)">
+        <p><b>Title:</b> {{draft.title}}</p>
+        <p><b>Content:</b> {{draft.content}}</p>
+        <p><b>Author:</b> {{draft.author}}</p>
+      </div>
+    }
+  </div>
+</div>

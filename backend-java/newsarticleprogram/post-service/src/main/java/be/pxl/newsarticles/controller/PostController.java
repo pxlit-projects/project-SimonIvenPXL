@@ -41,7 +41,7 @@ public class PostController {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<Post> saveEditsToDraft(@PathVariable Long id, @RequestBody PostRequest postRequest) {
+    public ResponseEntity<Post> saveEditsToPost(@PathVariable Long id, @RequestBody PostRequest postRequest) {
         try {
             return new ResponseEntity<>(postService.saveEditsToPost(id, postRequest), HttpStatus.OK);
         } catch (ResourceNotFoundException e) {

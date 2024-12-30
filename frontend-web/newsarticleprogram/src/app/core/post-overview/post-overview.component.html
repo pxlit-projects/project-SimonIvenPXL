@@ -1,6 +1,9 @@
 <div>
-  <div class="add-article" (click)="AddPost()">
-    <button>Add new article</button>
+  <div class="add-article">
+    <button (click)="addPost()">Add new article</button>
+  </div>
+  <div class="go-to-drafts">
+    <button (click)="goToDrafts()">Go to drafts</button>
   </div>
   <div class="posts">
     @for (post of this.posts; track post.id) {
@@ -8,16 +11,6 @@
         <p><b>Title:</b> {{post.title}}</p>
         <p><b>Content:</b> {{post.content}}</p>
         <p><b>Author:</b> {{post.author}}</p>
-      </div>
-    }
-  </div>
-  <p>=====================</p>
-  <div class="posts">
-    @for (draft of this.drafts; track draft.id) {
-      <div class="post-individual" (click)="getDraftDetails(draft.id)">
-        <p><b>Title:</b> {{draft.title}}</p>
-        <p><b>Content:</b> {{draft.content}}</p>
-        <p><b>Author:</b> {{draft.author}}</p>
       </div>
     }
   </div>

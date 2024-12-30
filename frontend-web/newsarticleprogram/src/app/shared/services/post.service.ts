@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Post} from '../models/post.model';
 import {PostRequest} from '../models/postRequest.model';
+import {Draft} from '../models/draft.model';
+import {DraftRequest} from '../models/draftRequest.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,23 +12,41 @@ import {PostRequest} from '../models/postRequest.model';
 export class PostService {
   http : HttpClient =inject(HttpClient);
 
+  // POSTS
   getPosts() : Observable<Post[]> {
     return this.http.get<Post[]>(`http://localhost:8081/posts`);
   }
 
-  getDrafts() : Observable<Post[]> {
-    return this.http.get<Post[]>(`http://localhost:8081/drafts`);
+  getPostDetails(id : number) : Observable<Post> {
+    return this.http.get<Post>(`http://localhost:8081/posts/${id}`);
   }
 
   createPost(postRequest : PostRequest) {
     return this.http.post<Post>(`http://localhost:8081/posts`, postRequest);
   }
 
-  createDraft(postRequest : PostRequest) {
-    return this.http.post<Post>(`http://localhost:8081/drafts`, postRequest);
+  saveEditsToPost(id: number, postRequest : PostRequest) {
+    return this.http.put<Post>(`http://localhost:8081/posts/${id}`, postRequest);
   }
 
-  getPostDetails(id : number) : Observable<Post> {
-    return this.http.get<Post>(`http://localhost:8081/posts/${id}`);
+  // DRAFTS
+  getDrafts() : Observable<Draft[]> {
+    return this.http.get<Draft[]>(`http://localhost:8081/drafts`);
+  }
+
+  createDraft(draftRequest : DraftRequest) {
+    return this.http.post<Draft>(`http://localhost:8081/drafts`, draftRequest);
+  }
+
+  getDraftDetails(id : number) : Observable<Draft> {
+    return this.http.get<Draft>(`http://localhost:8081/drafts/${id}`);
+  }
+
+  saveEditsToDraft(id : number, draftRequest : DraftRequest) {
+    return this.http.put(`http://localhost:8081/drafts/${id}`, draftRequest);
+  }
+
+  publishDraft(id : number) {
+    return this.http.post(`http://localhost:8081/drafts/${id}/publish`, {});
   }
 }

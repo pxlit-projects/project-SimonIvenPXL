@@ -10,6 +10,9 @@
     <p>{{post.author}}</p>
   </div>
 
-  <button (click)="EditPost(postId)">Edit</button>
+  <div class="buttons">
+    <button (click)="editPost(postId)">Edit</button>
+    <button (click)="return()">Go back</button>
+  </div>
 
 </div>

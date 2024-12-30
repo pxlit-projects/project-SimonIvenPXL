@@ -1,7 +1,9 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Post} from '../../shared/models/post.model';
 import {PostService} from '../../shared/services/post.service';
+import {PostRequest} from '../../shared/models/postRequest.model';
+import {Draft} from '../../shared/models/draft.model';
 
 @Component({
   selector: 'app-draft-details',
@@ -10,11 +12,11 @@ import {PostService} from '../../shared/services/post.service';
   templateUrl: './draft-details.component.html',
   styleUrl: './draft-details.component.css'
 })
-export class DraftDetailsComponent {
+export class DraftDetailsComponent implements OnInit{
   router : Router = inject(Router);
 
   draftId! : number;
-  draft! : Post;
+  draft! : Draft;
 
   constructor(
     private postService: PostService,
@@ -26,17 +28,30 @@ export class DraftDetailsComponent {
     this.route.params.subscribe(params => {
       this.draftId = +params['id']; // "+" converts string to number
     });
-    this.GetDraftDetails(this.draftId);
+    this.getDraftDetails(this.draftId);
   }
 
-  GetDraftDetails(id : number) {
-    this.postService.getPostDetails(id).subscribe({
-      next: post => this.draft = post,
+  getDraftDetails(id : number) {
+    this.postService.getDraftDetails(id).subscribe({
+      next: draft => this.draft = draft,
       error: error => console.log(error),
     });
   }
 
-  EditDraft(id : number) {
+  editDraft(id : number) {
     this.router.navigate([`editor/drafts/${id}/edit`]);
+  }
+
+  saveAsPost() {
+    this.postService.publishDraft(this.draftId).subscribe({
+      next: draft => {
+        console.log(draft);
+        this.router.navigate([`editor/drafts/`]);
+      }
+    });
+  }
+
+  return() {
+    this.router.navigate([`editor/drafts`])
   }
 }

@@ -9,6 +9,7 @@ import be.pxl.newsarticles.dto.post.PostResponse;
 import be.pxl.newsarticles.enumdata.PostStatus;
 import be.pxl.newsarticles.exception.ResourceNotFoundException;
 import be.pxl.newsarticles.repository.PostDraftRepository;
+import be.pxl.newsarticles.repository.PostRepository;
 import be.pxl.newsarticles.service.interfaces.IDraftService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -22,6 +23,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class DraftService implements IDraftService {
     private final PostDraftRepository postDraftRepository;
+    private final PostRepository postRepository;
     private final ModelMapper mapper;
 
     @Override
@@ -77,5 +79,21 @@ public class DraftService implements IDraftService {
         draft.setSavedDate(LocalDateTime.now().withNano(0));
 
         return postDraftRepository.save(draft);
+    }
+
+    @Override
+    public Post publishDraft(long id) {
+        Draft draft = postDraftRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No post found with ID " + id));
+
+        Post response =  Post.builder()
+                .title(draft.getTitle())
+                .content(draft.getContent())
+                .author(draft.getAuthor())
+                .status(PostStatus.PUBLISHED)
+                .publishedDate(LocalDateTime.now().withNano(0))
+                .build();
+
+        postDraftRepository.delete(draft);
+        return postRepository.save(response);
     }
 }

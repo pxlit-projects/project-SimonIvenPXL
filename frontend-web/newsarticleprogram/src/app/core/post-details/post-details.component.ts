@@ -26,18 +26,22 @@ export class PostDetailsComponent implements OnInit{
     this.route.params.subscribe(params => {
       this.postId = +params['id']; // "+" converts string to number
     });
-    this.GetPostDetails(this.postId);
+    this.getPostDetails(this.postId);
   }
 
-  GetPostDetails(id : number) {
+  getPostDetails(id : number) {
     this.postService.getPostDetails(id).subscribe({
       next: post => this.post = post,
       error: error => console.log(error),
     });
   }
 
-  EditPost(id : number) {
+  editPost(id : number) {
     this.router.navigate([`editor/posts/${id}/edit`]);
+  }
+
+  return() {
+    this.router.navigate([`editor/posts`])
   }
 
 }

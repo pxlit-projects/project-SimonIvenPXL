@@ -1,5 +1,5 @@
 <div>
-  <h1>Post Overview</h1>
+  <h1>Draft Overview</h1>
 
   <div>
     <h3>Title</h3>
@@ -10,6 +10,10 @@
     <p>{{draft.author}}</p>
   </div>
 
-  <button (click)="EditDraft(draftId)">Edit</button>
+  <div class="buttons">
+    <button (click)="editDraft(draftId)">Edit</button>
+    <button (click)="saveAsPost()">Publish as post</button>
+    <button (click)="return()">Go back</button>
+  </div>
 
 </div>
