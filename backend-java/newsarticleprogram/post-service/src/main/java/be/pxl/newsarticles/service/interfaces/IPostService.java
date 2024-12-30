@@ -11,5 +11,6 @@ public interface IPostService {
     Post createPost(PostRequest postRequest);
     List<PostResponse> getAllPosts();
     PostResponse getPostById(long id);
+    Post saveEditsToPost(long id, PostRequest postRequest);
 
 }

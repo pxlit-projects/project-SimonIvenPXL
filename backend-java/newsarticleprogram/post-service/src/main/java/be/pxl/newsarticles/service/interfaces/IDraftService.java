@@ -13,4 +13,5 @@ public interface IDraftService {
     DraftResponse getDraftById(long id);
     Draft savePostAsDraft(DraftRequest draftRequest);
     List<DraftResponse> getDrafts();
+    Draft saveEditsToDraft(long id, DraftRequest draftRequest);
 }

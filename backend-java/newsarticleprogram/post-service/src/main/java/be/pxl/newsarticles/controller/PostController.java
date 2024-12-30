@@ -1,6 +1,8 @@
 package be.pxl.newsarticles.controller;
 
+import be.pxl.newsarticles.domain.Draft;
 import be.pxl.newsarticles.domain.Post;
+import be.pxl.newsarticles.dto.draft.DraftRequest;
 import be.pxl.newsarticles.dto.post.PostRequest;
 import be.pxl.newsarticles.dto.post.PostResponse;
 import be.pxl.newsarticles.exception.ResourceNotFoundException;
@@ -33,6 +35,15 @@ public class PostController {
     public ResponseEntity<PostResponse> getPostById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(postService.getPostById(id), HttpStatus.OK);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Post> saveEditsToDraft(@PathVariable Long id, @RequestBody PostRequest postRequest) {
+        try {
+            return new ResponseEntity<>(postService.saveEditsToPost(id, postRequest), HttpStatus.OK);
         } catch (ResourceNotFoundException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

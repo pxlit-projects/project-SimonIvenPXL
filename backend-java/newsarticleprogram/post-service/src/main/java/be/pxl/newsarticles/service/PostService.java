@@ -1,6 +1,8 @@
 package be.pxl.newsarticles.service;
 
+import be.pxl.newsarticles.domain.Draft;
 import be.pxl.newsarticles.domain.Post;
+import be.pxl.newsarticles.dto.draft.DraftRequest;
 import be.pxl.newsarticles.dto.post.PostRequest;
 import be.pxl.newsarticles.dto.post.PostResponse;
 import be.pxl.newsarticles.enumdata.PostStatus;
@@ -56,12 +58,26 @@ public class PostService implements IPostService {
         }
 
         return PostResponse.builder()
+                .id(post.get().getId())
                 .title(post.get().getTitle())
                 .content(post.get().getContent())
                 .author(post.get().getAuthor())
                 .status(post.get().getStatus())
                 .publishedDate(post.get().getPublishedDate())
                 .build();
+    }
+
+    @Override
+    public Post saveEditsToPost(long id, PostRequest postRequest) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No post found with ID " + id));
+
+        post.setTitle(postRequest.getTitle());
+        post.setContent(postRequest.getContent());
+        post.setAuthor(postRequest.getAuthor());
+        post.setStatus(PostStatus.PUBLISHED);
+        post.setPublishedDate(LocalDateTime.now().withNano(0));
+
+        return postRepository.save(post);
     }
 
 }

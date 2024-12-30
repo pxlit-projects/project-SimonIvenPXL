@@ -44,4 +44,13 @@ public class DraftController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Draft> saveEditsToDraft(@PathVariable Long id, @RequestBody DraftRequest draftRequest) {
+        try {
+            return new ResponseEntity<>(draftService.saveEditsToDraft(id, draftRequest), HttpStatus.OK);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

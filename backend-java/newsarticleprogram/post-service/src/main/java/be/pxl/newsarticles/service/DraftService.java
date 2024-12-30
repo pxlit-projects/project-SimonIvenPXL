@@ -46,6 +46,7 @@ public class DraftService implements IDraftService {
         }
 
         return DraftResponse.builder()
+                .id(draft.get().getId())
                 .title(draft.get().getTitle())
                 .content(draft.get().getContent())
                 .author(draft.get().getAuthor())
@@ -63,5 +64,18 @@ public class DraftService implements IDraftService {
         }
 
         return drafts.stream().map(p -> mapper.map(p, DraftResponse.class)).toList();
+    }
+
+    @Override
+    public Draft saveEditsToDraft(long id, DraftRequest draftRequest) {
+        Draft draft = postDraftRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No post found with ID " + id));
+
+        draft.setTitle(draftRequest.getTitle());
+        draft.setContent(draftRequest.getContent());
+        draft.setAuthor(draftRequest.getAuthor());
+        draft.setStatus(PostStatus.PUBLISHED);
+        draft.setSavedDate(LocalDateTime.now().withNano(0));
+
+        return postDraftRepository.save(draft);
     }
 }
