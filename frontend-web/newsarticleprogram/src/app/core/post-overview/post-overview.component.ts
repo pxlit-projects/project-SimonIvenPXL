@@ -1,16 +1,18 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Post} from '../../shared/models/post.model';
 import {PostService} from '../../shared/services/post.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../../shared/services/auth.service';
 import {NgIf} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-post-overview',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    FormsModule
   ],
   templateUrl: './post-overview.component.html',
   styleUrl: './post-overview.component.css'
@@ -21,6 +23,13 @@ export class PostOverviewComponent implements OnInit{
 
   postsObservable: Observable<Post[]> ;
   posts: Post[] = [];
+  filteredPosts: Post[] = [];
+  filterCriteria = {
+    content: '',
+    author: '',
+    date: '',
+  };
+  showFilters: boolean = false;
 
   constructor(
     private postService : PostService,
@@ -30,10 +39,34 @@ export class PostOverviewComponent implements OnInit{
 
   ngOnInit() {
     this.postsObservable.subscribe(posts => {
-      this.posts = posts;
+      this.posts = this.sortPostsByDate(posts);
+      this.filteredPosts = this.posts;
     });
   }
 
+  sortPostsByDate(posts : Post[]) : Post[] {
+    return posts.sort((a, b) => {
+      const dateA = new Date(a.publishedDate).getTime();
+      const dateB = new Date(b.publishedDate).getTime();
+      return dateB - dateA;
+    });
+  }
+
+  // Filters
+  applyFilters(): void {
+    this.filteredPosts = this.posts.filter(post => {
+      const matchesContent = post.content.toLowerCase().includes(this.filterCriteria.content);
+      const matchesAuthor = post.author.toLowerCase().includes(this.filterCriteria.author);
+      const matchesDate = this.filterCriteria.date
+        ? post.publishedDate.toString().startsWith(this.filterCriteria.date)
+        : true;
+      return matchesContent && matchesAuthor && matchesDate;
+    });
+
+    this.filteredPosts = this.sortPostsByDate(this.filteredPosts);
+  }
+
+  // Functionality
   getPosts() : Observable<Post[]>  {
     return this.postService.getPosts();
   }

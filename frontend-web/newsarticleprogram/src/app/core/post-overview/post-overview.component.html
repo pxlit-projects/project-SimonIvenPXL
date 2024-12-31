@@ -8,8 +8,19 @@
   <div class="log-out">
     <button (click)="logout()">Log out</button>
   </div>
+
+  <div class="filters">
+    <div>
+      <p>Filters: </p>
+      <input [(ngModel)]="filterCriteria.content" placeholder="Search by content" />
+      <input [(ngModel)]="filterCriteria.author" placeholder="Search by author" />
+      <input [(ngModel)]="filterCriteria.date" placeholder="Search by date" type="date" />
+      <button (click)="applyFilters()">Apply filters</button>
+    </div>
+  </div>
+
   <div class="posts">
-    @for (post of this.posts; track post.id) {
+    @for (post of this.filteredPosts; track post.id) {
       <div class="post-individual" (click)="getPostDetails(post.id)">
         <p><b>Title:</b> {{post.title}}</p>
         <p><b>Content:</b> {{post.content}}</p>
