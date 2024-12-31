@@ -6,17 +6,23 @@ import {PostDetailsComponent} from './core/post-details/post-details.component';
 import {DraftDetailsComponent} from './core/draft-details/draft-details.component';
 import {EditDraftComponent} from './core/edit-draft/edit-draft.component';
 import {DraftOverviewComponent} from './core/draft-overview/draft-overview.component';
+import {LoginComponent} from './core/login/login.component';
+import {AuthGuard} from './shared/guard/auth-guard';
 
 export const routes: Routes = [
-  {path : 'editor/posts', component : PostOverviewComponent},
-  {path : 'editor/posts/add', component : AddPostComponent},
-  {path : 'editor/posts/:id', component : PostDetailsComponent},
-  {path : 'editor/posts/:id/edit', component : EditPostComponent},
+  {path : "login", component : LoginComponent},
 
-  {path : 'editor/drafts', component : DraftOverviewComponent},
-  {path : 'editor/drafts/:id', component : DraftDetailsComponent},
-  {path : 'editor/drafts/:id/edit', component : EditDraftComponent},
+  // EDITOR ROUTES
+  {path : 'editor/posts/add', component : AddPostComponent, canActivate: [AuthGuard]},
+  {path : 'editor/posts/:id/edit', component : EditPostComponent, canActivate: [AuthGuard]},
 
+  {path : 'editor/drafts', component : DraftOverviewComponent, canActivate: [AuthGuard]},
+  {path : 'editor/drafts/:id', component : DraftDetailsComponent, canActivate: [AuthGuard]},
+  {path : 'editor/drafts/:id/edit', component : EditDraftComponent, canActivate: [AuthGuard]},
 
-  {path : '**', redirectTo : 'editor/posts'}
+  // USER ROUTES OR COMMON ROUTES
+  {path : 'posts', component : PostOverviewComponent},
+  {path : 'posts/:id', component : PostDetailsComponent},
+
+  {path : '**', redirectTo : 'posts'}
 ];

@@ -2,16 +2,21 @@ import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostService} from '../../shared/services/post.service';
 import {Post} from '../../shared/models/post.model';
+import {AuthService} from '../../shared/services/auth.service';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-post-details',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css'
 })
 export class PostDetailsComponent implements OnInit{
   router : Router = inject(Router);
+  authService : AuthService = inject(AuthService);
 
   postId! : number;
   post! : Post;
@@ -41,7 +46,7 @@ export class PostDetailsComponent implements OnInit{
   }
 
   return() {
-    this.router.navigate([`editor/posts`])
+    this.router.navigate([`posts`])
   }
 
 }

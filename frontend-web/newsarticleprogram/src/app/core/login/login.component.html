@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="login-container">
+  <h1>Login</h1>
+  <form (ngSubmit)="login()">
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" required />
+    </div>
+    <br>
+    <div>
+      <label for="role">Role: </label>
+      <select id="role" [(ngModel)]="role" name="role" required>
+        <option value="editor">Editor</option>
+        <option value="user">User</option>
+      </select>
+    </div>
+    <br>
+    <button type="submit">Login</button>
+  </form>
+</div>

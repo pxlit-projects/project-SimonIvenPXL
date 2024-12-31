@@ -11,7 +11,7 @@
   </div>
 
   <div class="buttons">
-    <button (click)="editPost(postId)">Edit</button>
+    <button *ngIf="authService.isAdmin()" (click)="editPost(postId)">Edit</button>
     <button (click)="return()">Go back</button>
   </div>
 

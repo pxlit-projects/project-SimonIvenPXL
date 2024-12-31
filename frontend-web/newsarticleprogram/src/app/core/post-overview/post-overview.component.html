@@ -1,9 +1,12 @@
 <div>
-  <div class="add-article">
+  <div *ngIf="authService.isAdmin()" class="add-article">
     <button (click)="addPost()">Add new article</button>
   </div>
-  <div class="go-to-drafts">
+  <div *ngIf="authService.isAdmin()" class="go-to-drafts">
     <button (click)="goToDrafts()">Go to drafts</button>
+  </div>
+  <div class="log-out">
+    <button (click)="logout()">Log out</button>
   </div>
   <div class="posts">
     @for (post of this.posts; track post.id) {

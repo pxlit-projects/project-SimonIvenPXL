@@ -26,6 +26,11 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('user');
+    return !!localStorage.getItem('user'); // converts to boolean
+  }
+
+  isAdmin() : boolean {
+    const role = localStorage.getItem('role');
+    return role === 'editor';
   }
 }
