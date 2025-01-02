@@ -7,11 +7,11 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>be.pxl.reviews</groupId>
-    <artifactId>review-service</artifactId>
+    <groupId>be.pxl.services</groupId>
+    <artifactId>discovery-service</artifactId>
     <packaging>jar</packaging>
 
-    <name>review-service</name>
+    <name>discovery-service</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -26,13 +26,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
