@@ -22,12 +22,11 @@
 		<developer/>
 	</developers>
 	<modules>
-		<module>post-service</module>
-        <module>review-service</module>
-        <module>review-service</module>
-        <module>config-service</module>
+		<module>config-service</module>
 		<module>discovery-service</module>
 		<module>gateway-service</module>
+		<module>post-service</module>
+        <module>review-service</module>
 	</modules>
 	<scm>
 		<connection/>
@@ -90,7 +89,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.validation</groupId>
