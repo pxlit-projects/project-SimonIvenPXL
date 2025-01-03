@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/posts")
+@RequestMapping("/api/posts")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class PostController {
@@ -28,7 +28,11 @@ public class PostController {
 
     @GetMapping
     public ResponseEntity<List<PostResponse>> getPosts() {
-        return new ResponseEntity<>(postService.getAllPosts(), HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(postService.getAllPosts(), HttpStatus.OK);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping(path = "/{id}")

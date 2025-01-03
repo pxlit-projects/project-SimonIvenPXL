@@ -18,5 +18,7 @@ public class PostResponse {
     private String content;
     private String author;
     private PostStatus status;
+    private String reviewEditor;
+    private String reviewReasoning;
     private LocalDateTime publishedDate;
 }

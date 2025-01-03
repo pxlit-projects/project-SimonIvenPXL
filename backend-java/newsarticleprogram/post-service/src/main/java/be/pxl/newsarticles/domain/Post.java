@@ -28,6 +28,9 @@ public class Post {
     @Enumerated(EnumType.STRING)
     private PostStatus status;
 
+    private String reviewEditor;
+    private String reviewReasoning;
+
     @JsonProperty("publishedDate")
     private LocalDateTime publishedDate;
 }

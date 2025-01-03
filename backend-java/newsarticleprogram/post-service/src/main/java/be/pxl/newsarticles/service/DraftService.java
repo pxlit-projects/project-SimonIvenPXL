@@ -75,7 +75,7 @@ public class DraftService implements IDraftService {
         draft.setTitle(draftRequest.getTitle());
         draft.setContent(draftRequest.getContent());
         draft.setAuthor(draftRequest.getAuthor());
-        draft.setStatus(PostStatus.PUBLISHED);
+        draft.setStatus(PostStatus.DRAFT);
         draft.setSavedDate(LocalDateTime.now().withNano(0));
 
         return postDraftRepository.save(draft);
@@ -89,7 +89,7 @@ public class DraftService implements IDraftService {
                 .title(draft.getTitle())
                 .content(draft.getContent())
                 .author(draft.getAuthor())
-                .status(PostStatus.PUBLISHED)
+                .status(PostStatus.PENDING)
                 .publishedDate(LocalDateTime.now().withNano(0))
                 .build();
 

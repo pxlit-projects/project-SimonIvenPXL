@@ -31,7 +31,7 @@ public class PostService implements IPostService {
                 .title(postRequest.getTitle())
                 .content(postRequest.getContent())
                 .author(postRequest.getAuthor())
-                .status(PostStatus.PUBLISHED)
+                .status(PostStatus.PENDING)
                 .publishedDate(LocalDateTime.now().withNano(0))
                 .build();
 
@@ -74,7 +74,9 @@ public class PostService implements IPostService {
         post.setTitle(postRequest.getTitle());
         post.setContent(postRequest.getContent());
         post.setAuthor(postRequest.getAuthor());
-        post.setStatus(PostStatus.PUBLISHED);
+        post.setStatus(postRequest.getStatus());
+        post.setReviewEditor(postRequest.getReviewEditor());
+        post.setReviewReasoning(postRequest.getReviewReasoning());
         post.setPublishedDate(LocalDateTime.now().withNano(0));
 
         return postRepository.save(post);

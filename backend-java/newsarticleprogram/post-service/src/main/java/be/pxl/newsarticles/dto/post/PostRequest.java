@@ -28,6 +28,10 @@ public class PostRequest {
     @NotBlank(message = "Post must have a status!")
     private PostStatus status;
 
+    private String reviewEditor;
+
+    private String reviewReasoning;
+
     @FutureOrPresent
     private LocalDateTime publishedDate;
 }

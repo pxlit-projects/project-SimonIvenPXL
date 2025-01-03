@@ -1,6 +1,6 @@
 package be.pxl.reviews.domain;
 
-import be.pxl.reviews.enumdata.ReviewStatus;
+import be.pxl.reviews.enumdata.ReviewDecision;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +26,7 @@ public class Review {
     private String reasoning;
 
     @Enumerated(EnumType.STRING)
-    private ReviewStatus status;
+    private ReviewDecision decision;
 
     private LocalDateTime reviewedDate;
 }
