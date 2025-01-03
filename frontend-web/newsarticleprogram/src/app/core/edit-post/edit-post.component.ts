@@ -2,9 +2,10 @@ import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Post} from '../../shared/models/post.model';
 import {PostService} from '../../shared/services/post.service';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {PostRequest} from '../../shared/models/postRequest.model';
 import {NgIf} from '@angular/common';
+import {PostStatus} from '../../shared/models/postStatus.model';
 
 @Component({
   selector: 'app-edit-post',
@@ -62,8 +63,9 @@ export class EditPostComponent implements OnInit {
     let title : string = this.editPostForm.get('title')!.value!;
     let content : string = this.editPostForm.get('content')!.value!;
     let author : string = this.editPostForm.get('author')!.value!;
+    let status : PostStatus = PostStatus.PENDING
 
-    let postRequest: PostRequest = new PostRequest(title, content, author);
+    let postRequest: PostRequest = new PostRequest(title, content, author, status);
 
     this.postService.saveEditsToPost(this.postId, postRequest).subscribe({
       next: post => {

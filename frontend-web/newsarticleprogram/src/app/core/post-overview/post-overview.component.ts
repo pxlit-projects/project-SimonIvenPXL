@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../shared/services/auth.service';
 import {NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {PostStatus} from '../../shared/models/postStatus.model';
 
 @Component({
   selector: 'app-post-overview',
@@ -39,7 +40,11 @@ export class PostOverviewComponent implements OnInit{
 
   ngOnInit() {
     this.postsObservable.subscribe(posts => {
-      this.posts = this.sortPostsByDate(posts);
+      if (this.authService.isAdmin()) {
+        this.posts = posts;
+      } else if (!this.authService.isAdmin()) {
+        this.posts = this.sortPostsByDate(posts).filter(post => post.status === PostStatus.PUBLISHED);
+      }
       this.filteredPosts = this.posts;
     });
   }

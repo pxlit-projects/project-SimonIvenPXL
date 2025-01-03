@@ -36,7 +36,10 @@ export class PostDetailsComponent implements OnInit{
 
   getPostDetails(id : number) {
     this.postService.getPostDetails(id).subscribe({
-      next: post => this.post = post,
+      next: post => {
+        this.post = post;
+        console.log(post);
+      },
       error: error => console.log(error),
     });
   }

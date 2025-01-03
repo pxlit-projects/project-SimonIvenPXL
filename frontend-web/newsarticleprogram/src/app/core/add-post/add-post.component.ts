@@ -4,6 +4,7 @@ import {Location} from '@angular/common';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {PostService} from '../../shared/services/post.service';
 import {PostRequest} from '../../shared/models/postRequest.model';
+import {PostStatus} from '../../shared/models/postStatus.model';
 
 @Component({
   selector: 'app-add-post',
@@ -22,6 +23,7 @@ export class AddPostComponent implements OnInit{
   title : string = "";
   content : string = "";
   author : string = "";
+  status : PostStatus = PostStatus.PENDING;
 
   newPostForm: FormGroup = this.fb.group({
     title: ['', Validators.required],
@@ -43,8 +45,9 @@ export class AddPostComponent implements OnInit{
     let title = this.newPostForm.get('title')?.value;
     let content = this.newPostForm.get('content')?.value;
     let author = this.newPostForm.get('author')?.value;
+    let status = PostStatus.PENDING;
 
-    let postRequest : PostRequest = new PostRequest(title, content, author);
+    let postRequest : PostRequest = new PostRequest(title, content, author, status);
 
     this.postService.createPost(postRequest).subscribe();
   }
@@ -53,8 +56,9 @@ export class AddPostComponent implements OnInit{
     let title = this.newPostForm.get('title')?.value;
     let content = this.newPostForm.get('content')?.value;
     let author = this.newPostForm.get('author')?.value;
+    let status = PostStatus.DRAFT;
 
-    let postRequest : PostRequest = new PostRequest(title, content, author);
+    let postRequest : PostRequest = new PostRequest(title, content, author, status);
 
     this.postService.createDraft(postRequest).subscribe();
   }

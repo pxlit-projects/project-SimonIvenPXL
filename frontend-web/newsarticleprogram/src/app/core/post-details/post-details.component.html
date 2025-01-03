@@ -10,6 +10,8 @@
     <p>{{post.author}}</p>
     <h3>Published date</h3>
     <p>{{post.publishedDate.toString().slice(0, 10)}}</p>
+    <h3 *ngIf="authService.isAdmin()">Status</h3>
+    <p *ngIf="authService.isAdmin()">{{post.status || "No status"}}</p>
   </div>
 
   <div class="buttons">

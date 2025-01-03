@@ -25,6 +25,7 @@
         <p><b>Title:</b> {{post.title}}</p>
         <p><b>Content:</b> {{post.content}}</p>
         <p><b>Author:</b> {{post.author}}</p>
+        <p *ngIf="authService.isAdmin()"><b>Status:</b> {{post.status || 'No status available'}}</p>
       </div>
     }
   </div>
