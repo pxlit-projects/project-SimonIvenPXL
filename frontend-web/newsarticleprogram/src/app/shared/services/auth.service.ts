@@ -33,4 +33,9 @@ export class AuthService {
     const role = localStorage.getItem('role');
     return role === 'editor';
   }
+
+  isUser() : boolean {
+    const role = localStorage.getItem('role');
+    return role === 'user';
+  }
 }

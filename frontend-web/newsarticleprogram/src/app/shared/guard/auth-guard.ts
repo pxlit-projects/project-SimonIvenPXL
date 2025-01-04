@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.isAdmin()) {
       return true;  // Allow access if admin role
     } else {
-      this.router.navigate(['posts']);  // Redirect if not admin role
+      this.router.navigate(['api/posts']);  // Redirect if not admin role
       return false;
     }
   }
