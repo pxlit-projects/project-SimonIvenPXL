@@ -15,7 +15,11 @@
   </div>
 
   <div class="buttons">
-    <button *ngIf="authService.isAdmin()" (click)="editPost(postId)">Edit</button>
+    <button *ngIf="authService.isAdmin() && authService.getUser().username == post.author" (click)="editPost(postId)">Edit</button>
+    <button *ngIf="authService.isAdmin()
+    && post.status == PostStatus.PENDING
+    && authService.getUser().username != post.author"
+            (click)="reviewPost(postId)">Review</button>
     <button (click)="return()">Go back</button>
   </div>
 

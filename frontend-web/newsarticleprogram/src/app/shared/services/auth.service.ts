@@ -13,9 +13,9 @@ export class AuthService {
     console.log('User logged in:', { username, role });
   }
 
-  getUser(): { username: string | null; role: string | null } {
-    const username = localStorage.getItem('user');
-    const role = localStorage.getItem('role');
+  getUser(): { username: string; role: string } {
+    const username = localStorage.getItem('user') || 'DefaultValue';
+    const role = localStorage.getItem('role') || 'user';
     return { username, role };
   }
 

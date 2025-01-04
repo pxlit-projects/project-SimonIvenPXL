@@ -1,1 +1,21 @@
-<p>add-review works!</p>
+<button (click)="onReturn()">Go back</button>
+<div class="add-review-container">
+  <div class="post-details">
+    <h3>Title</h3>
+    <p>{{post.title}}</p>
+    <h3>Content</h3>
+    <p>{{post.content}}</p>
+    <h3>Author</h3>
+    <p>{{post.author}}</p>
+  </div>
+  <form (ngSubmit)="approvePost()" [formGroup]="newReviewForm">
+    <div class="input-field">
+      <label for="reasoning">Reasoning: </label>
+      <input class="input" type="text" id="reasoning" name="reasoning" placeholder="Reason" formControlName="reasoning">
+    </div>
+    <br/>
+    <button class="submit-button" type="submit">APPROVE POST</button>
+    <button class="submit-draft" type="button" (click)="rejectPost()">REJECT POST</button>
+  </form>
+</div>
+

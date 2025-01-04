@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {PostService} from '../../shared/services/post.service';
 import {PostRequest} from '../../shared/models/postRequest.model';
 import {PostStatus} from '../../shared/models/postStatus.model';
+import {AuthService} from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-add-post',
@@ -19,16 +20,15 @@ import {PostStatus} from '../../shared/models/postStatus.model';
 export class AddPostComponent implements OnInit{
   router : Router = inject(Router);
   fb: FormBuilder = inject(FormBuilder);
+  authService : AuthService = inject(AuthService);
 
   title : string = "";
   content : string = "";
   author : string = "";
-  status : PostStatus = PostStatus.PENDING;
 
   newPostForm: FormGroup = this.fb.group({
     title: ['', Validators.required],
-    content: ['', Validators.required],
-    author: ['', Validators.required]
+    content: ['', Validators.required]
   });
 
   constructor(
@@ -44,23 +44,25 @@ export class AddPostComponent implements OnInit{
   savePost() {
     let title = this.newPostForm.get('title')?.value;
     let content = this.newPostForm.get('content')?.value;
-    let author = this.newPostForm.get('author')?.value;
+    let author = this.authService.getUser().username;
     let status = PostStatus.PENDING;
 
     let postRequest : PostRequest = new PostRequest(title, content, author, status);
 
     this.postService.createPost(postRequest).subscribe();
+    this.router.navigate(['editor/posts']);
   }
 
   saveDraft() {
     let title = this.newPostForm.get('title')?.value;
     let content = this.newPostForm.get('content')?.value;
-    let author = this.newPostForm.get('author')?.value;
+    let author = this.authService.getUser().username;
     let status = PostStatus.DRAFT;
 
     let postRequest : PostRequest = new PostRequest(title, content, author, status);
 
     this.postService.createDraft(postRequest).subscribe();
+    this.router.navigate(['editor/drafts']);
   }
 
   onReturn() {

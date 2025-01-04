@@ -27,8 +27,7 @@ export class EditPostComponent implements OnInit {
 
   editPostForm = this.fb.group({
     title: ['', Validators.required],
-    content: ['', Validators.required],
-    author: ['', Validators.required],
+    content: ['', Validators.required]
   });
 
   constructor(
@@ -51,8 +50,7 @@ export class EditPostComponent implements OnInit {
 
         this.editPostForm = this.fb.group({
           title: [this.post.title, Validators.required],
-          content: [this.post.content, Validators.required],
-          author: [this.post.author, Validators.required]
+          content: [this.post.content, Validators.required]
         })
       },
       error: error => console.log(error),
@@ -62,7 +60,7 @@ export class EditPostComponent implements OnInit {
   saveChanges() {
     let title : string = this.editPostForm.get('title')!.value!;
     let content : string = this.editPostForm.get('content')!.value!;
-    let author : string = this.editPostForm.get('author')!.value!;
+    let author : string = this.post.author;
     let status : PostStatus = PostStatus.PENDING
 
     let postRequest: PostRequest = new PostRequest(title, content, author, status);

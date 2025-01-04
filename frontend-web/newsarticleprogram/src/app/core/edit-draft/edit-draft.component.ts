@@ -7,6 +7,7 @@ import {PostRequest} from '../../shared/models/postRequest.model';
 import {NgIf} from '@angular/common';
 import {DraftRequest} from '../../shared/models/draftRequest.model';
 import {Draft} from '../../shared/models/draft.model';
+import {AuthService} from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-edit-draft',
@@ -22,14 +23,14 @@ import {Draft} from '../../shared/models/draft.model';
 export class EditDraftComponent implements OnInit{
   router : Router = inject(Router);
   fb: FormBuilder = inject(FormBuilder);
+  authService : AuthService = inject(AuthService);
 
   draftId! : number;
   draft! : Draft;
 
   editDraftForm = this.fb.group({
     title: ['', Validators.required],
-    content: ['', Validators.required],
-    author: ['', Validators.required],
+    content: ['', Validators.required]
   });
 
   constructor(
@@ -52,8 +53,7 @@ export class EditDraftComponent implements OnInit{
 
         this.editDraftForm = this.fb.group({
           title: [this.draft.title, Validators.required],
-          content: [this.draft.content, Validators.required],
-          author: [this.draft.author, Validators.required]
+          content: [this.draft.content, Validators.required]
         })
       },
       error: error => console.log(error),
@@ -63,7 +63,7 @@ export class EditDraftComponent implements OnInit{
   saveChanges() {
     let title : string = this.editDraftForm.get('title')!.value!;
     let content : string = this.editDraftForm.get('content')!.value!;
-    let author : string = this.editDraftForm.get('author')!.value!;
+    let author : string = this.draft.author;
 
     let draftRequest: DraftRequest = new DraftRequest(title, content, author);
 

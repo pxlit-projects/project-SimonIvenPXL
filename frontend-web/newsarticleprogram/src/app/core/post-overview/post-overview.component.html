@@ -1,4 +1,7 @@
 <div>
+  <div>
+    <h3>WELKOM {{authService.getUser().username}}!</h3>
+  </div>
   <div *ngIf="authService.isAdmin()" class="add-article">
     <button (click)="addPost()">Add new article</button>
   </div>

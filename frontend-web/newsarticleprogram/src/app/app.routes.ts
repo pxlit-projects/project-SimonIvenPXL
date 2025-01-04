@@ -8,6 +8,7 @@ import {EditDraftComponent} from './core/edit-draft/edit-draft.component';
 import {DraftOverviewComponent} from './core/draft-overview/draft-overview.component';
 import {LoginComponent} from './core/login/login.component';
 import {AuthGuard} from './shared/guard/auth-guard';
+import {AddReviewComponent} from './core/add-review/add-review.component';
 
 export const routes: Routes = [
   {path : "login", component : LoginComponent},
@@ -19,6 +20,8 @@ export const routes: Routes = [
   {path : 'editor/drafts', component : DraftOverviewComponent, canActivate: [AuthGuard]},
   {path : 'editor/drafts/:id', component : DraftDetailsComponent, canActivate: [AuthGuard]},
   {path : 'editor/drafts/:id/edit', component : EditDraftComponent, canActivate: [AuthGuard]},
+
+  {path : "editor/posts/:id/review", component: AddReviewComponent, canActivate: [AuthGuard]},
 
   // USER ROUTES OR COMMON ROUTES
   {path : 'posts', component : PostOverviewComponent},

@@ -4,6 +4,7 @@ import {PostService} from '../../shared/services/post.service';
 import {Post} from '../../shared/models/post.model';
 import {AuthService} from '../../shared/services/auth.service';
 import {NgIf} from '@angular/common';
+import {PostStatus} from '../../shared/models/postStatus.model';
 
 @Component({
   selector: 'app-post-details',
@@ -48,8 +49,13 @@ export class PostDetailsComponent implements OnInit{
     this.router.navigate([`editor/posts/${id}/edit`]);
   }
 
+  reviewPost(id: number) {
+    this.router.navigate([`editor/posts/${id}/review`]);
+  }
+
   return() {
     this.router.navigate([`posts`])
   }
 
+  protected readonly PostStatus = PostStatus;
 }
