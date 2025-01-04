@@ -42,7 +42,7 @@ export class PostOverviewComponent implements OnInit{
     this.postsObservable.subscribe(posts => {
       if (this.authService.isAdmin()) {
         this.posts = posts;
-      } else if (!this.authService.isAdmin()) {
+      } else if (this.authService.isUser()) {
         this.posts = this.sortPostsByDate(posts).filter(post => post.status === PostStatus.PUBLISHED);
       }
       this.filteredPosts = this.posts;
