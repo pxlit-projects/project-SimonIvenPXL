@@ -1,6 +1,7 @@
 package be.pxl.newsarticles.domain;
 
 import be.pxl.newsarticles.enumdata.PostStatus;
+import be.pxl.services.domain.Comment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -30,6 +32,11 @@ public class Post {
 
     private String reviewEditor;
     private String reviewReasoning;
+
+    @ElementCollection
+    @CollectionTable(name = "post_comments", joinColumns = @JoinColumn(name = "post_id"))
+    @Column(name = "comment_id")
+    private List<Long> commentIds;
 
     @JsonProperty("publishedDate")
     private LocalDateTime publishedDate;

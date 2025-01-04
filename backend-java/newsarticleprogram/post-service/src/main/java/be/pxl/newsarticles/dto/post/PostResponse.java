@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -21,4 +22,5 @@ public class PostResponse {
     private String reviewEditor;
     private String reviewReasoning;
     private LocalDateTime publishedDate;
+    private List<Long> commentIds;
 }

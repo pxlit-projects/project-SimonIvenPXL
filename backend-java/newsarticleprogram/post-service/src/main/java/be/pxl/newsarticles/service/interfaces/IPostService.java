@@ -12,5 +12,6 @@ public interface IPostService {
     List<PostResponse> getAllPosts();
     PostResponse getPostById(long id);
     Post saveEditsToPost(long id, PostRequest postRequest);
+    Post addCommentToPost(long postId, String author, String comment);
 
 }

@@ -1,5 +1,6 @@
 package be.pxl.newsarticles.service;
 
+import be.pxl.newsarticles.client.CommentClient;
 import be.pxl.newsarticles.domain.Draft;
 import be.pxl.newsarticles.domain.Post;
 import be.pxl.newsarticles.dto.draft.DraftRequest;
@@ -10,6 +11,8 @@ import be.pxl.newsarticles.exception.ResourceNotFoundException;
 import be.pxl.newsarticles.repository.PostDraftRepository;
 import be.pxl.newsarticles.repository.PostRepository;
 import be.pxl.newsarticles.service.interfaces.IPostService;
+import be.pxl.services.domain.Comment;
+import be.pxl.services.dto.CommentRequest;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PostService implements IPostService {
     private final PostRepository postRepository;
+    private final CommentClient commentClient;
     private final ModelMapper mapper;
 
     @Override
@@ -78,6 +82,23 @@ public class PostService implements IPostService {
         post.setReviewEditor(postRequest.getReviewEditor());
         post.setReviewReasoning(postRequest.getReviewReasoning());
         post.setPublishedDate(LocalDateTime.now().withNano(0));
+
+        return postRepository.save(post);
+    }
+
+    @Override
+    public Post addCommentToPost(long postId, String author, String comment) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> new ResourceNotFoundException("No post found with ID " + postId));
+
+        CommentRequest commentRequest = CommentRequest.builder()
+                .postId(postId)
+                .author(author)
+                .content(comment)
+                .build();
+
+        Comment createdComment = commentClient.createComment(commentRequest);
+
+        post.getCommentIds().add(createdComment.getId());
 
         return postRepository.save(post);
     }
