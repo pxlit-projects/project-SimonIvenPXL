@@ -16,4 +16,8 @@ export class CommentService {
   postComment(postID : number, commentRequest : CommentRequest) {
     return this.http.post<Comment>(`${this.api}/post/api/posts/${postID}/comments`, commentRequest);
   }
+
+  getCommentsForPost(postId: number) {
+    return this.http.get<Comment[]>(`${this.api}/post/api/posts/${postId}/comments`);
+  }
 }

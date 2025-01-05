@@ -5,3 +5,9 @@
 .buttons button:last-child {
   margin-right: 0;
 }
+
+.comment-individual {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+}

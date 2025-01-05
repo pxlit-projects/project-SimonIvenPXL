@@ -24,4 +24,13 @@
     <button (click)="return()">Go back</button>
   </div>
 
+  <div class="comments">
+    @for (comment of this.comments; track comment.id) {
+      <div class="comment-individual">
+        <p><b>{{comment.author}}</b></p>
+        <p>{{comment.content}}</p>
+      </div>
+    }
+  </div>
+
 </div>

@@ -5,6 +5,8 @@ import {Post} from '../../shared/models/post.model';
 import {AuthService} from '../../shared/services/auth.service';
 import {NgIf} from '@angular/common';
 import {PostStatus} from '../../shared/models/postStatus.model';
+import {Comment} from '../../shared/models/comment.model';
+import {CommentService} from '../../shared/services/comment.service';
 
 @Component({
   selector: 'app-post-details',
@@ -22,9 +24,12 @@ export class PostDetailsComponent implements OnInit{
   postId! : number;
   post! : Post;
 
+  comments : Comment[] = [];
+
   constructor(
     private postService: PostService,
     private route : ActivatedRoute,
+    private commentService: CommentService,
   ) {
   }
 
@@ -33,13 +38,16 @@ export class PostDetailsComponent implements OnInit{
       this.postId = +params['id']; // "+" converts string to number
     });
     this.getPostDetails(this.postId);
+    this.commentService.getCommentsForPost(this.postId).subscribe(comments => {
+      this.comments = comments;
+      console.log(this.comments);
+    });
   }
 
   getPostDetails(id : number) {
     this.postService.getPostDetails(id).subscribe({
       next: post => {
         this.post = post;
-        console.log(post);
       },
       error: error => console.log(error),
     });
