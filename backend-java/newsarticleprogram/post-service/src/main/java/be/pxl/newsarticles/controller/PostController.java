@@ -6,6 +6,7 @@ import be.pxl.newsarticles.dto.post.PostResponse;
 import be.pxl.newsarticles.exception.ResourceNotFoundException;
 import be.pxl.newsarticles.service.PostService;
 import be.pxl.services.dto.CommentRequest;
+import be.pxl.services.dto.CommentResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +56,15 @@ public class PostController {
     public ResponseEntity<Post> addCommentToPost(@PathVariable Long id, @RequestBody CommentRequest commentRequest) {
         try {
             return new ResponseEntity<>(postService.addCommentToPost(id, commentRequest.getAuthor(), commentRequest.getContent()), HttpStatus.CREATED);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping(path = "/{id}/comments")
+    public ResponseEntity<List<CommentResponse>> getCommentsFromPost(@PathVariable Long id) {
+        try {
+            return new ResponseEntity<>(postService.getCommentsForPost(id), HttpStatus.OK);
         } catch (ResourceNotFoundException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

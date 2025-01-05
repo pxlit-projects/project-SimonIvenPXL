@@ -13,6 +13,7 @@ import be.pxl.newsarticles.repository.PostRepository;
 import be.pxl.newsarticles.service.interfaces.IPostService;
 import be.pxl.services.domain.Comment;
 import be.pxl.services.dto.CommentRequest;
+import be.pxl.services.dto.CommentResponse;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -104,6 +105,25 @@ public class PostService implements IPostService {
         post.getCommentIds().add(createdComment.getId());
 
         return postRepository.save(post);
+    }
+
+    @Override
+    public List<CommentResponse> getCommentsForPost(long postId) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> new ResourceNotFoundException("No post found with ID " + postId));
+
+        List<CommentResponse> comments = new ArrayList<>();
+
+        for (Long commentId : post.getCommentIds()) {
+            try {
+                CommentResponse comment = commentClient.getCommentById(commentId);
+                comments.add(comment);
+            } catch (Exception e) {
+                System.err.println("Failed to fetch comment with ID: " + commentId);
+            }
+        }
+
+        return comments;
+
     }
 
 }
