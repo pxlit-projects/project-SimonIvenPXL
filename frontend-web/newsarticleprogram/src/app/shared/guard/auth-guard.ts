@@ -1,4 +1,3 @@
-// auth.guard.ts
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import {AuthService} from '../services/auth.service';
@@ -14,9 +13,9 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
     if (this.authService.isAdmin()) {
-      return true;  // Allow access if admin role
+      return true;  // Allow access if admin
     } else {
-      this.router.navigate(['api/posts']);  // Redirect if not admin role
+      this.router.navigate(['api/posts']);  // Redirect if not admin
       return false;
     }
   }

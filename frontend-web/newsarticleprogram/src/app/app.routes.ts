@@ -9,6 +9,7 @@ import {DraftOverviewComponent} from './core/draft-overview/draft-overview.compo
 import {LoginComponent} from './core/login/login.component';
 import {AuthGuard} from './shared/guard/auth-guard';
 import {AddReviewComponent} from './core/add-review/add-review.component';
+import {AddCommentComponent} from './core/add-comment/add-comment.component';
 
 export const routes: Routes = [
   {path : "login", component : LoginComponent},
@@ -26,6 +27,7 @@ export const routes: Routes = [
   // USER ROUTES OR COMMON ROUTES
   {path : 'posts', component : PostOverviewComponent},
   {path : 'posts/:id', component : PostDetailsComponent},
+  {path : "posts/:id/comment", component : AddCommentComponent},
 
   {path : '**', redirectTo : 'posts'}
 ];

@@ -53,6 +53,10 @@ export class PostDetailsComponent implements OnInit{
     this.router.navigate([`editor/posts/${id}/review`]);
   }
 
+  addComment(id : number) {
+    this.router.navigate([`posts/${id}/comment`]);
+  }
+
   return() {
     this.router.navigate([`posts`])
   }

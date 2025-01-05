@@ -20,6 +20,7 @@
     && post.status == PostStatus.PENDING
     && authService.getUser().username != post.author"
             (click)="reviewPost(postId)">Review</button>
+    <button (click)="addComment(postId)">Add comment</button>
     <button (click)="return()">Go back</button>
   </div>
 

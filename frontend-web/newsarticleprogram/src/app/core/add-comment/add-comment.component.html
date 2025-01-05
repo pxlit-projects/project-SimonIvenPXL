@@ -1,0 +1,20 @@
+<button (click)="onReturn()">Go back</button>
+<div class="add-comment-container">
+  <div class="post-details">
+    <h3>Title</h3>
+    <p>{{post.title}}</p>
+    <h3>Content</h3>
+    <p>{{post.content}}</p>
+    <h3>Author</h3>
+    <p>{{post.author}}</p>
+  </div>
+  <form (ngSubmit)="postComment()" [formGroup]="newCommentForm">
+    <div class="input-field">
+      <label for="comment">Comment: </label>
+      <input class="input" type="text" id="comment" name="comment" placeholder="Comment" formControlName="comment">
+    </div>
+    <br/>
+    <button class="submit-button" type="submit">SUBMIT COMMENT</button>
+  </form>
+</div>
+
