@@ -61,9 +61,10 @@ export class EditPostComponent implements OnInit {
     let title : string = this.editPostForm.get('title')!.value!;
     let content : string = this.editPostForm.get('content')!.value!;
     let author : string = this.post.author;
-    let status : PostStatus = PostStatus.PENDING
+    let status : PostStatus = PostStatus.PENDING;
+    let commentIds = this.post.commentIds;
 
-    let postRequest: PostRequest = new PostRequest(title, content, author, status);
+    let postRequest: PostRequest = new PostRequest(title, content, author, status, commentIds);
 
     this.postService.saveEditsToPost(this.postId, postRequest).subscribe({
       next: post => {

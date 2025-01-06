@@ -9,9 +9,10 @@ export class Post {
   reviewReasoning: string;
   status: PostStatus
   publishedDate : Date;
+  commentIds : number[];
 
   constructor(id : number, title : string, content : string, author : string,
-              reviewAuthor: string, reviewReasoning: string, status: PostStatus, publishedDate : Date) {
+              reviewAuthor: string, reviewReasoning: string, status: PostStatus, publishedDate : Date, commentIds : number[]) {
     this.id = id;
     this.title  = title;
     this.content  = content;
@@ -20,5 +21,6 @@ export class Post {
     this.reviewReasoning = reviewReasoning;
     this.status = status;
     this.publishedDate = publishedDate;
+    this.commentIds = commentIds;
   }
 }

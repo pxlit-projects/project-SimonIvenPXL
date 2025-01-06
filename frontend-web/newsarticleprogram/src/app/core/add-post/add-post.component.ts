@@ -46,8 +46,9 @@ export class AddPostComponent implements OnInit{
     let content = this.newPostForm.get('content')?.value;
     let author = this.authService.getUser().username;
     let status = PostStatus.PENDING;
+    let commentIds : number[] = [];
 
-    let postRequest : PostRequest = new PostRequest(title, content, author, status);
+    let postRequest : PostRequest = new PostRequest(title, content, author, status, commentIds);
 
     this.postService.createPost(postRequest).subscribe();
     this.router.navigate(['editor/posts']);
@@ -58,8 +59,9 @@ export class AddPostComponent implements OnInit{
     let content = this.newPostForm.get('content')?.value;
     let author = this.authService.getUser().username;
     let status = PostStatus.DRAFT;
+    let commentIds: number[] = [];
 
-    let postRequest : PostRequest = new PostRequest(title, content, author, status);
+    let postRequest : PostRequest = new PostRequest(title, content, author, status, commentIds);
 
     this.postService.createDraft(postRequest).subscribe();
     this.router.navigate(['editor/drafts']);
