@@ -78,6 +78,7 @@ public class ReviewService implements IReviewService {
                 .reviewEditor(editor)
                 .reviewReasoning(reasoning)
                 .publishedDate(LocalDateTime.now().withNano(0))
+                .commentIds(postResponse.getCommentIds())
                 .build();
 
         try {

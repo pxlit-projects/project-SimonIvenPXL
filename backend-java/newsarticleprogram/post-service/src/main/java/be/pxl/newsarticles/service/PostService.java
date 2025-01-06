@@ -86,6 +86,7 @@ public class PostService implements IPostService {
         post.setReviewEditor(postRequest.getReviewEditor());
         post.setReviewReasoning(postRequest.getReviewReasoning());
         post.setPublishedDate(LocalDateTime.now().withNano(0));
+        post.setCommentIds(postRequest.getCommentIds());
 
         return postRepository.save(post);
     }
