@@ -69,4 +69,23 @@ public class PostController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @PutMapping("/{id}/comments/{commentId}")
+    public ResponseEntity<Post> updateCommentForPost(@PathVariable Long id, @PathVariable Long commentId, @RequestBody String comment) {
+        try {
+            return new ResponseEntity<>(postService.updateCommentForPost(id, commentId, comment), HttpStatus.CREATED);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/{id}/comments/{commentId}")
+    public ResponseEntity<Void> deleteCommentFromPost(@PathVariable Long id, @PathVariable Long commentId) {
+        try {
+            postService.deleteCommentById(id, commentId);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

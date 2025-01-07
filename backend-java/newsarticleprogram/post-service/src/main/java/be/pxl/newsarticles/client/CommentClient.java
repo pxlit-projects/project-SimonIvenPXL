@@ -13,4 +13,10 @@ public interface CommentClient {
 
     @GetMapping("/api/comments/{id}")
     CommentResponse getCommentById(@PathVariable Long id);
+
+    @PutMapping("/api/comments/{id}")
+    Comment updateComment(@PathVariable Long id, @RequestBody CommentRequest commentRequest);
+
+    @DeleteMapping("/api/comments/{id}")
+    void deleteCommentById(@PathVariable Long id);
 }

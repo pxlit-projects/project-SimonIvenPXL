@@ -32,10 +32,31 @@ public class CommentController {
         }
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<CommentResponse> getCommentById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(commentService.getCommentById(id), HttpStatus.OK);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Comment> updateComment(@PathVariable Long id, @RequestBody CommentRequest commentRequest) {
+        try {
+            return new ResponseEntity<>(commentService.saveEditsToComment(id, commentRequest), HttpStatus.CREATED);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCommentById(@PathVariable Long id) {
+        try {
+            commentService.deleteCommentById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (ResourceNotFoundException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

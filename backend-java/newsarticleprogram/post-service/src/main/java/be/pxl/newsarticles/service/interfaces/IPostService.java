@@ -16,5 +16,7 @@ public interface IPostService {
     Post saveEditsToPost(long id, PostRequest postRequest);
     Post addCommentToPost(long postId, String author, String comment);
     List<CommentResponse> getCommentsForPost(long postId);
+    Post updateCommentForPost(long postId, long commentId, String comment);
+    void deleteCommentById(long postId, long commentId);
 
 }

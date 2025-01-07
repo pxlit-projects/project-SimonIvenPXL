@@ -127,4 +127,41 @@ public class PostService implements IPostService {
 
     }
 
+    @Override
+    public Post updateCommentForPost(long postId, long commentId, String comment) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> new ResourceNotFoundException("No post found with ID " + postId));
+
+        List<Long> commentIds = post.getCommentIds();
+        CommentResponse commentResponse = commentClient.getCommentById(commentId);
+
+        if (!commentIds.contains(commentId) || postId != commentResponse.getPostId()) {
+            throw new ResourceNotFoundException("No comment found with ID " + commentId);
+        }
+
+        CommentRequest commentRequest = CommentRequest.builder()
+                .postId(commentResponse.getPostId())
+                .author(commentResponse.getAuthor())
+                .content(comment)
+                .build();
+
+        commentClient.updateComment(commentId, commentRequest);
+
+
+        return postRepository.save(post);
+    }
+
+    @Override
+    public void deleteCommentById(long postId, long commentId) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> new ResourceNotFoundException("No post found with ID " + postId));
+
+
+        if (post.getCommentIds().contains(commentId)) {
+            commentClient.deleteCommentById(commentId);
+            post.getCommentIds().remove(commentId);
+            postRepository.save(post);
+        } else {
+            throw new ResourceNotFoundException("No comment found with ID " + commentId);
+        }
+    }
+
 }

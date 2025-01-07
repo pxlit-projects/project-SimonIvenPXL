@@ -10,4 +10,6 @@ public interface ICommentService {
     Comment createComment(CommentRequest commentRequest);
     List<CommentResponse> getAllComments();
     CommentResponse getCommentById(long id);
+    void deleteCommentById(long id);
+    Comment saveEditsToComment(long id, CommentRequest commentRequest);
 }

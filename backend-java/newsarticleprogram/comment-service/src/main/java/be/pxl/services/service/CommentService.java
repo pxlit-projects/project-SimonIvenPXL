@@ -59,4 +59,24 @@ public class CommentService implements ICommentService {
                 .commentDate(comment.get().getCommentDate())
                 .build();
     }
+
+    @Override
+    public void deleteCommentById(long id) {
+        Optional<Comment> comment = commentRepository.findById(id);
+        if (comment.isEmpty()) {
+            throw new ResourceNotFoundException("Comment not found");
+        }
+
+        commentRepository.delete(comment.get());
+    }
+
+    @Override
+    public Comment saveEditsToComment(long id, CommentRequest commentRequest) {
+        Comment comment = commentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Comment not found"));
+
+        comment.setContent(commentRequest.getContent());
+        comment.setCommentDate(LocalDateTime.now().withNano(0));
+
+        return commentRepository.save(comment);
+    }
 }
