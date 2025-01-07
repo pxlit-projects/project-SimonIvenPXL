@@ -2,34 +2,53 @@
   <div>
     <h3>WELKOM {{authService.getUser().username}}!</h3>
   </div>
+
   <div *ngIf="authService.isAdmin()" class="add-article">
-    <button (click)="addPost()">Add new article</button>
+    <button mat-raised-button color="primary" (click)="addPost()">Add new article</button>
   </div>
+
   <div *ngIf="authService.isAdmin()" class="go-to-drafts">
-    <button (click)="goToDrafts()">Go to drafts</button>
+    <button mat-raised-button color="accent" (click)="goToDrafts()">Go to drafts</button>
   </div>
+
   <div class="log-out">
-    <button (click)="logout()">Log out</button>
+    <button mat-raised-button color="warn" (click)="logout()">Log out</button>
   </div>
 
   <div class="filters">
     <div>
       <p>Filters: </p>
-      <input [(ngModel)]="filterCriteria.content" placeholder="Search by content" />
-      <input [(ngModel)]="filterCriteria.author" placeholder="Search by author" />
-      <input [(ngModel)]="filterCriteria.date" placeholder="Search by date" type="date" />
-      <button (click)="applyFilters()">Apply filters</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Search by content</mat-label>
+        <input matInput [(ngModel)]="filterCriteria.content" placeholder="Search by content" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Search by author</mat-label>
+        <input matInput [(ngModel)]="filterCriteria.author" placeholder="Search by author" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Search by date</mat-label>
+        <input matInput [(ngModel)]="filterCriteria.date" placeholder="Search by date" type="date" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="applyFilters()">Apply filters</button>
     </div>
   </div>
 
   <div class="posts">
-    @for (post of this.filteredPosts; track post.id) {
-      <div class="post-individual" (click)="getPostDetails(post.id)">
-        <p><b>Title:</b> {{post.title}}</p>
-        <p><b>Content:</b> {{post.content}}</p>
-        <p><b>Author:</b> {{post.author}}</p>
-        <p *ngIf="authService.isAdmin()"><b>Status:</b> {{post.status || 'No status available'}}</p>
-      </div>
-    }
+    <div *ngFor="let post of filteredPosts; trackBy: trackPostId">
+      <mat-card class="post-individual" (click)="getPostDetails(post.id)">
+        <mat-card-header>
+          <mat-card-title>{{ post.title }}</mat-card-title>
+          <mat-card-subtitle>{{ post.author }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p><b>Content:</b> {{ post.content }}</p>
+          <p *ngIf="authService.isAdmin()"><b>Status:</b> {{ post.status || 'No status available' }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 </div>

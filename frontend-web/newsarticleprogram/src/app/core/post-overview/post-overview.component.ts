@@ -7,13 +7,22 @@ import {AuthService} from '../../shared/services/auth.service';
 import {NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {PostStatus} from '../../shared/models/postStatus.model';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {CommonModule} from '@angular/common';
+
 
 @Component({
   selector: 'app-post-overview',
   standalone: true,
   imports: [
     NgIf,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    CommonModule
   ],
   templateUrl: './post-overview.component.html',
   styleUrl: './post-overview.component.css'
@@ -55,6 +64,10 @@ export class PostOverviewComponent implements OnInit{
       const dateB = new Date(b.publishedDate).getTime();
       return dateB - dateA;
     });
+  }
+
+  trackPostId(index: number, post: Post): number {
+    return post.id;
   }
 
   // Filters

@@ -3,18 +3,25 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {PostService} from '../../shared/services/post.service';
 import {Post} from '../../shared/models/post.model';
 import {AuthService} from '../../shared/services/auth.service';
-import {NgIf} from '@angular/common';
+import {CommonModule, NgIf} from '@angular/common';
 import {PostStatus} from '../../shared/models/postStatus.model';
 import {Comment} from '../../shared/models/comment.model';
 import {CommentService} from '../../shared/services/comment.service';
 import {FormsModule} from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-post-details',
   standalone: true,
   imports: [
     NgIf,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    CommonModule
   ],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css'
@@ -56,6 +63,10 @@ export class PostDetailsComponent implements OnInit{
       },
       error: error => console.log(error),
     });
+  }
+
+  trackComment(index: number, comment: Comment): number {
+    return comment.id;
   }
 
   toggleEdit(commentId: number) {
