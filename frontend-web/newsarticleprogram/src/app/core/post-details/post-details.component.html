@@ -20,7 +20,7 @@
     && post.status == PostStatus.PENDING
     && authService.getUser().username != post.author"
             (click)="reviewPost(postId)">Review</button>
-    <button (click)="addComment(postId)">Add comment</button>
+    <button *ngIf="authService.isUser()" (click)="addComment(postId)">Add comment</button>
     <button (click)="return()">Go back</button>
   </div>
 
@@ -28,7 +28,23 @@
     @for (comment of this.comments; track comment.id) {
       <div class="comment-individual">
         <p><b>{{comment.author}}</b></p>
-        <p>{{comment.content}}</p>
+        <div *ngIf="isEditing[comment.id]; else viewComment">
+          <form (ngSubmit)="editComment(comment.id)">
+            <textarea [(ngModel)]="editedContent[comment.id]" name="content" required></textarea>
+            <button type="submit" [disabled]="!editedContent[comment.id]">Save</button>
+            <button type="button" (click)="toggleEdit(comment.id)">Cancel</button>
+          </form>
+        </div>
+
+        <ng-template #viewComment>
+          <p>{{comment.content}}</p>
+          <div class="comment-buttons">
+            <button *ngIf="authService.getUser().username == comment.author && authService.isUser()"
+                    (click)="deleteComment(comment.id)">Delete comment</button>
+            <button *ngIf="authService.getUser().username == comment.author && authService.isUser()"
+                    (click)="toggleEdit(comment.id)">Edit comment</button>
+          </div>
+        </ng-template>
       </div>
     }
   </div>

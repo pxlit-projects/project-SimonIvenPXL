@@ -7,12 +7,14 @@ import {NgIf} from '@angular/common';
 import {PostStatus} from '../../shared/models/postStatus.model';
 import {Comment} from '../../shared/models/comment.model';
 import {CommentService} from '../../shared/services/comment.service';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-post-details',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    FormsModule
   ],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css'
@@ -25,6 +27,9 @@ export class PostDetailsComponent implements OnInit{
   post! : Post;
 
   comments : Comment[] = [];
+
+  isEditing: { [key: number]: boolean } = {};
+  editedContent: { [key: number]: string } = {};
 
   constructor(
     private postService: PostService,
@@ -53,6 +58,14 @@ export class PostDetailsComponent implements OnInit{
     });
   }
 
+  toggleEdit(commentId: number) {
+    this.isEditing[commentId] = !this.isEditing[commentId];
+    const comment = this.comments.find(comment => comment.id === commentId);
+    if (comment && this.isEditing[commentId]) {
+      this.editedContent[commentId] = comment.content;
+    }
+  }
+
   editPost(id : number) {
     this.router.navigate([`editor/posts/${id}/edit`]);
   }
@@ -63,6 +76,30 @@ export class PostDetailsComponent implements OnInit{
 
   addComment(id : number) {
     this.router.navigate([`posts/${id}/comment`]);
+  }
+
+  editComment(commentId : number) {
+    const updatedContent = this.editedContent[commentId];
+
+    this.commentService.updateComment(this.postId, commentId, updatedContent).subscribe({
+      next: () => {
+        this.toggleEdit(commentId);
+        this.getPostDetails(this.postId);
+      },
+      error: error => console.log(error),
+    })
+  }
+
+  deleteComment(commentId: number) {
+    this.commentService.deleteCommentFromPost(this.postId, commentId).subscribe({
+      next: () => {
+        this.commentService.getCommentsForPost(this.postId).subscribe(comments => {
+          this.comments = comments;
+          console.log(this.comments);
+        });
+      },
+      error: error => console.error('Error deleting comment:', error),
+    });
   }
 
   return() {
