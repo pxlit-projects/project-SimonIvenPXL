@@ -45,7 +45,7 @@ spring:
         - id: notification-websocket
           uri: lb:ws://notification-service
           predicates:
-            - Path=/notification-ws/**
+            - Path=/notification-websocket/**
           filters:
             - RemoveRequestHeader=Sec-WebSocket-Protocol
             - RemoveRequestHeader=Sec-WebSocket-Extensions

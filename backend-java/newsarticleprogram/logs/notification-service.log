@@ -322,3 +322,273 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:114)
 	at java.base/java.lang.Thread.run(Thread.java:1570)
 2025-01-12T21:25:20.620+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2025-01-12T21:43:08.452+0100 INFO  [main] be.pxl.services.NotificationServiceApplication - Starting NotificationServiceApplication using Java 22.0.1 with PID 12000 (C:\Users\simon\Desktop\Fullstack Java Project\project-SimonIvenPXL\backend-java\newsarticleprogram\notification-service\target\classes started by simon in C:\Users\simon\Desktop\Fullstack Java Project\project-SimonIvenPXL\backend-java\newsarticleprogram)
+2025-01-12T21:43:08.455+0100 DEBUG [main] be.pxl.services.NotificationServiceApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-01-12T21:43:08.455+0100 INFO  [main] be.pxl.services.NotificationServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-12T21:43:08.493+0100 INFO  [main] org.springframework.cloud.config.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8088/
+2025-01-12T21:43:08.493+0100 INFO  [main] org.springframework.cloud.config.client.ConfigServerConfigDataLoader - Located environment: name=notification-service, profiles=[default], label=null, version=null, state=null
+2025-01-12T21:43:09.417+0100 INFO  [main] org.springframework.cloud.context.scope.GenericScope - BeanFactory id=5a1baa57-6d8c-317c-a5a0-6576ceb3e002
+2025-01-12T21:43:09.507+0100 WARN  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-01-12T21:43:09.510+0100 WARN  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-01-12T21:43:09.714+0100 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8084 (http)
+2025-01-12T21:43:09.726+0100 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8084"]
+2025-01-12T21:43:09.728+0100 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-12T21:43:09.728+0100 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-12T21:43:09.796+0100 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-12T21:43:09.796+0100 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1301 ms
+2025-01-12T21:43:10.698+0100 INFO  [main] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-01-12T21:43:10.848+0100 INFO  [main] org.springframework.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-01-12T21:43:10.868+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-01-12T21:43:10.871+0100 INFO  [main] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-12T21:43:10.876+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-01-12T21:43:10.876+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-01-12T21:43:10.876+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-01-12T21:43:10.876+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Application is null : false
+2025-01-12T21:43:10.876+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-01-12T21:43:10.876+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-01-12T21:43:10.876+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-01-12T21:43:11.092+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - The response status is 200
+2025-01-12T21:43:11.093+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-01-12T21:43:11.095+0100 INFO  [main] com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-01-12T21:43:11.097+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1736714591096 with initial instances count: 3
+2025-01-12T21:43:11.102+0100 INFO  [main] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry - Registering application NOTIFICATION-SERVICE with eureka with status UP
+2025-01-12T21:43:11.103+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1736714591103, current=UP, previous=STARTING]
+2025-01-12T21:43:11.105+0100 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8084"]
+2025-01-12T21:43:11.105+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084: registering service...
+2025-01-12T21:43:11.124+0100 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8084 (http) with context path '/'
+2025-01-12T21:43:11.125+0100 INFO  [main] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration - Updating port to 8084
+2025-01-12T21:43:11.131+0100 INFO  [main] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Starting...
+2025-01-12T21:43:11.132+0100 INFO  [main] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6033f36c]]
+2025-01-12T21:43:11.132+0100 INFO  [main] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Started.
+2025-01-12T21:43:11.136+0100 INFO  [main] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:11.143+0100 INFO  [main] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Broker not available; cannot force queue declarations during start: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:11.145+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084 - registration status: 204
+2025-01-12T21:43:11.152+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:11.155+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:61)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:622)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2249)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2222)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2202)
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:467)
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:451)
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1960)
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1924)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1479)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1320)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:752)
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:61)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1249)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:668)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:637)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:584)
+	... 12 common frames omitted
+2025-01-12T21:43:11.160+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:11.178+0100 INFO  [main] be.pxl.services.NotificationServiceApplication - Started NotificationServiceApplication in 3.67 seconds (process running for 4.402)
+2025-01-12T21:43:16.382+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:16.384+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@7a569672: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:43:16.386+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:16.413+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:43:16.413+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:21.639+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:21.640+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@79fcbbc1: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:43:21.642+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:21.644+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:43:21.644+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:26.666+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:26.667+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@6a0f5937: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:43:26.668+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:26.668+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:43:26.668+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:31.863+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:31.863+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@24a189be: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:43:31.864+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:31.865+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:43:31.866+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:37.008+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:37.008+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@1a7bccb5: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:43:37.009+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:37.010+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:43:37.010+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:42.211+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:42.211+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@1d552c39: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:43:42.213+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:42.226+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:43:42.226+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:47.238+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:47.239+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@650b816f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:43:47.243+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:47.272+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:43:47.273+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:52.470+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:52.470+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@75793bb: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:43:52.472+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:52.473+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:43:52.473+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:57.508+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:43:57.508+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@53713e55: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:43:57.512+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:43:57.515+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:43:57.515+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:02.551+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:02.552+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@5e2d91f9: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:02.554+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:02.583+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:02.583+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:07.631+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:07.632+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-11] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@6d6457a6: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:07.646+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:07.648+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:07.648+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:10.798+0100 INFO  [MessageBroker-1] org.springframework.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-01-12T21:44:12.863+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:12.864+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@1bebd7a2: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:12.866+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:12.896+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:12.896+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:17.928+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:17.929+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-13] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@5be0f503: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:17.931+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:17.959+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:17.959+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:23.183+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:23.183+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-14] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@6bf2de08: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:23.184+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:23.186+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:23.186+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:28.378+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:28.378+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-15] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@5117a0fa: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:28.379+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-16] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:28.380+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-16] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:28.380+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-16] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:32.409+0100 INFO  [SpringApplicationShutdownHook] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry - Unregistering application NOTIFICATION-SERVICE with eureka with status DOWN
+2025-01-12T21:44:32.409+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1736714672409, current=DOWN, previous=UP]
+2025-01-12T21:44:32.409+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084: registering service...
+2025-01-12T21:44:32.411+0100 INFO  [SpringApplicationShutdownHook] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2025-01-12T21:44:32.411+0100 INFO  [SpringApplicationShutdownHook] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6033f36c]]
+2025-01-12T21:44:32.411+0100 INFO  [SpringApplicationShutdownHook] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2025-01-12T21:44:32.412+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-17] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-01-12T21:44:32.412+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-17] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-01-12T21:44:32.425+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2025-01-12T21:44:32.426+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084 - registration status: 204
+2025-01-12T21:44:32.428+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Unregistering ...
+2025-01-12T21:44:32.432+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084 - deregister  status: 200
+2025-01-12T21:44:32.433+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2025-01-12T21:44:35.553+0100 INFO  [main] be.pxl.services.NotificationServiceApplication - Starting NotificationServiceApplication using Java 22.0.1 with PID 6300 (C:\Users\simon\Desktop\Fullstack Java Project\project-SimonIvenPXL\backend-java\newsarticleprogram\notification-service\target\classes started by simon in C:\Users\simon\Desktop\Fullstack Java Project\project-SimonIvenPXL\backend-java\newsarticleprogram)
+2025-01-12T21:44:35.556+0100 DEBUG [main] be.pxl.services.NotificationServiceApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-01-12T21:44:35.556+0100 INFO  [main] be.pxl.services.NotificationServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-12T21:44:35.596+0100 INFO  [main] org.springframework.cloud.config.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8088/
+2025-01-12T21:44:35.596+0100 INFO  [main] org.springframework.cloud.config.client.ConfigServerConfigDataLoader - Located environment: name=notification-service, profiles=[default], label=null, version=null, state=null
+2025-01-12T21:44:36.463+0100 INFO  [main] org.springframework.cloud.context.scope.GenericScope - BeanFactory id=5a1baa57-6d8c-317c-a5a0-6576ceb3e002
+2025-01-12T21:44:36.561+0100 WARN  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-01-12T21:44:36.562+0100 WARN  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-01-12T21:44:36.748+0100 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8084 (http)
+2025-01-12T21:44:36.759+0100 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8084"]
+2025-01-12T21:44:36.763+0100 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-12T21:44:36.763+0100 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-12T21:44:36.836+0100 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-12T21:44:36.837+0100 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1238 ms
+2025-01-12T21:44:37.686+0100 INFO  [main] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-01-12T21:44:37.845+0100 INFO  [main] org.springframework.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-01-12T21:44:37.864+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-01-12T21:44:37.868+0100 INFO  [main] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-12T21:44:37.875+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-01-12T21:44:37.875+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-01-12T21:44:37.875+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-01-12T21:44:37.875+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Application is null : false
+2025-01-12T21:44:37.875+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-01-12T21:44:37.875+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-01-12T21:44:37.875+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-01-12T21:44:38.135+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - The response status is 200
+2025-01-12T21:44:38.140+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-01-12T21:44:38.143+0100 INFO  [main] com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-01-12T21:44:38.145+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1736714678145 with initial instances count: 5
+2025-01-12T21:44:38.150+0100 INFO  [main] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry - Registering application NOTIFICATION-SERVICE with eureka with status UP
+2025-01-12T21:44:38.150+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1736714678150, current=UP, previous=STARTING]
+2025-01-12T21:44:38.154+0100 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8084"]
+2025-01-12T21:44:38.155+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084: registering service...
+2025-01-12T21:44:38.187+0100 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8084 (http) with context path '/'
+2025-01-12T21:44:38.190+0100 INFO  [main] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration - Updating port to 8084
+2025-01-12T21:44:38.200+0100 INFO  [main] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Starting...
+2025-01-12T21:44:38.201+0100 INFO  [main] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1e2b37cd]]
+2025-01-12T21:44:38.202+0100 INFO  [main] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Started.
+2025-01-12T21:44:38.204+0100 INFO  [main] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:38.216+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084 - registration status: 204
+2025-01-12T21:44:38.223+0100 INFO  [main] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Broker not available; cannot force queue declarations during start: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:38.230+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:38.254+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:61)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:622)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726)
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2249)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2222)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2202)
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:467)
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:451)
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1960)
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1924)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1479)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1320)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:752)
+	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:61)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1249)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:668)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:637)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:584)
+	... 12 common frames omitted
+2025-01-12T21:44:38.258+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:38.308+0100 INFO  [main] be.pxl.services.NotificationServiceApplication - Started NotificationServiceApplication in 3.715 seconds (process running for 4.344)
+2025-01-12T21:44:43.428+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:43.430+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@5da1a97f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:43.432+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:43.434+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:43.434+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:48.614+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:48.615+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@5fe0aed2: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:48.617+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:48.632+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:48.632+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:53.734+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:53.734+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@6994dcd9: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:53.735+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:53.766+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:53.766+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:58.982+0100 WARN  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Consumer raised exception, processing can restart if the connection factory supports it. Exception summary: org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection refused: getsockopt
+2025-01-12T21:44:58.983+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Restarting Consumer@1a7bccb5: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-01-12T21:44:58.985+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:58.989+0100 ERROR [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-01-12T21:44:58.989+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-01-12T21:44:59.579+0100 INFO  [SpringApplicationShutdownHook] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry - Unregistering application NOTIFICATION-SERVICE with eureka with status DOWN
+2025-01-12T21:44:59.580+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1736714699580, current=DOWN, previous=UP]
+2025-01-12T21:44:59.580+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084: registering service...
+2025-01-12T21:44:59.581+0100 INFO  [SpringApplicationShutdownHook] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Stopping...
+2025-01-12T21:44:59.582+0100 INFO  [SpringApplicationShutdownHook] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1e2b37cd]]
+2025-01-12T21:44:59.582+0100 INFO  [SpringApplicationShutdownHook] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Stopped.
+2025-01-12T21:44:59.584+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-01-12T21:44:59.584+0100 INFO  [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-01-12T21:44:59.592+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084 - registration status: 204
+2025-01-12T21:44:59.604+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2025-01-12T21:45:02.608+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Unregistering ...
+2025-01-12T21:45:02.626+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084 - deregister  status: 200
+2025-01-12T21:45:02.626+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
