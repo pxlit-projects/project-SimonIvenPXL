@@ -4,7 +4,7 @@ import {Post} from '../../shared/models/post.model';
 import {PostService} from '../../shared/services/post.service';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {PostRequest} from '../../shared/models/postRequest.model';
-import {NgIf} from '@angular/common';
+
 import {PostStatus} from '../../shared/models/postStatus.model';
 
 @Component({
@@ -12,9 +12,8 @@ import {PostStatus} from '../../shared/models/postStatus.model';
   standalone: true,
   imports: [
     FormsModule,
-    ReactiveFormsModule,
-    NgIf
-  ],
+    ReactiveFormsModule
+],
   templateUrl: './edit-post.component.html',
   styleUrl: './edit-post.component.css'
 })

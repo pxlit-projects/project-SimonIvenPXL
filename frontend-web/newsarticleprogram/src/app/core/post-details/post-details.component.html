@@ -13,72 +13,82 @@
       <p>{{ post.author }}</p>
       <h3>Published date</h3>
       <p>{{ post.publishedDate.toString().slice(0, 10) }}</p>
-      <h3 *ngIf="authService.isAdmin()">Status</h3>
-      <p *ngIf="authService.isAdmin()">{{ post.status || "No status" }}</p>
+      @if (authService.isAdmin()) {
+        <h3>Status</h3>
+      }
+      @if (authService.isAdmin()) {
+        <p>{{ post.status || "No status" }}</p>
+      }
     </mat-card-content>
   </mat-card>
 
   <div class="buttons">
-    <button mat-raised-button color="accent"
-            *ngIf="authService.isAdmin() && authService.getUser().username == post.author"
-            (click)="editPost(postId)">
-      Edit
-    </button>
-    <button mat-raised-button color="warn"
-            *ngIf="authService.isAdmin()
-            && post.status == PostStatus.PENDING
-            && authService.getUser().username != post.author"
-            (click)="reviewPost(postId)">
-      Review
-    </button>
-    <button mat-raised-button color="primary"
-            *ngIf="authService.isUser()"
-            (click)="addComment(postId)">
-      Add comment
-    </button>
+    @if (authService.isAdmin() && authService.getUser().username == post.author) {
+      <button mat-raised-button color="accent"
+        (click)="editPost(postId)">
+        Edit
+      </button>
+    }
+    @if (authService.isAdmin()
+      && post.status == PostStatus.PENDING
+      && authService.getUser().username != post.author) {
+      <button mat-raised-button color="warn"
+        (click)="reviewPost(postId)">
+        Review
+      </button>
+    }
+    @if (authService.isUser()) {
+      <button mat-raised-button color="primary"
+        (click)="addComment(postId)">
+        Add comment
+      </button>
+    }
   </div>
 
   <br>
-  <p>Comments:</p>
+    <p>Comments:</p>
 
-  <div class="comments">
-    <mat-card *ngFor="let comment of comments; trackBy: trackComment" class="comment-card">
-      <mat-card-content>
-        <p><b>{{ comment.author }}</b></p>
-
-        <div *ngIf="isEditing[comment.id]; else viewComment">
-          <form (ngSubmit)="editComment(comment.id)">
-            <mat-form-field appearance="outline" class="full-width">
-              <mat-label>Edit Comment</mat-label>
-              <textarea matInput [(ngModel)]="editedContent[comment.id]" name="content" required></textarea>
-            </mat-form-field>
-            <div>
-              <button mat-stroked-button color="primary" type="submit" [disabled]="!editedContent[comment.id]">
-                Save
-              </button>
-              <button mat-button color="warn" type="button" (click)="toggleEdit(comment.id)">
-                Cancel
-              </button>
-            </div>
-          </form>
-        </div>
-
-        <ng-template #viewComment>
-          <p>{{ comment.content }}</p>
-          <div class="comment-buttons">
-            <button mat-flat-button color="warn"
-                    *ngIf="authService.getUser().username == comment.author && authService.isUser()"
+    <div class="comments">
+      @for (comment of comments; track trackComment($index, comment)) {
+        <mat-card class="comment-card">
+          <mat-card-content>
+            <p><b>{{ comment.author }}</b></p>
+            @if (isEditing[comment.id]) {
+              <div>
+                <form (ngSubmit)="editComment(comment.id)">
+                  <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Edit Comment</mat-label>
+                    <textarea matInput [(ngModel)]="editedContent[comment.id]" name="content" required></textarea>
+                  </mat-form-field>
+                  <div>
+                    <button mat-stroked-button color="primary" type="submit" [disabled]="!editedContent[comment.id]">
+                      Save
+                    </button>
+                    <button mat-button color="warn" type="button" (click)="toggleEdit(comment.id)">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              </div>
+            } @else {
+              <p>{{ comment.content }}</p>
+              <div class="comment-buttons">
+                @if (authService.getUser().username == comment.author && authService.isUser()) {
+                  <button mat-flat-button color="warn"
                     (click)="deleteComment(comment.id)">
-              Delete comment
-            </button>
-            <button mat-flat-button color="accent"
-                    *ngIf="authService.getUser().username == comment.author && authService.isUser()"
+                    Delete comment
+                  </button>
+                }
+                @if (authService.getUser().username == comment.author && authService.isUser()) {
+                  <button mat-flat-button color="accent"
                     (click)="toggleEdit(comment.id)">
-              Edit comment
-            </button>
-          </div>
-        </ng-template>
-      </mat-card-content>
-    </mat-card>
+                    Edit comment
+                  </button>
+                }
+              </div>
+            }
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
   </div>
-</div>

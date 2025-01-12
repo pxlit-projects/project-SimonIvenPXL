@@ -1,22 +1,24 @@
 <div>
   <h1>Edit draft</h1>
 
-  <form *ngIf="editDraftForm" [formGroup]="editDraftForm" (ngSubmit)="saveChanges()">
-    <div class="input-field">
-      <label for="title">Title</label>
-      <input class="input" type="text" id="title" name="title" formControlName="title">
-    </div>
-    <br/>
-    <div class="input-field">
-      <label for="content">Content</label>
-      <input class="input" type="text" id="content" name="content" formControlName="content">
-    </div>
-    <br/>
-    <div class="input-field">
-      <label>Author: {{this.draft.author}}</label>
-    </div>
-    <br/>
-    <button class="submit-button" type="submit">Save edits</button>
-  </form>
+  @if (editDraftForm) {
+    <form [formGroup]="editDraftForm" (ngSubmit)="saveChanges()">
+      <div class="input-field">
+        <label for="title">Title</label>
+        <input class="input" type="text" id="title" name="title" formControlName="title">
+      </div>
+      <br/>
+      <div class="input-field">
+        <label for="content">Content</label>
+        <input class="input" type="text" id="content" name="content" formControlName="content">
+      </div>
+      <br/>
+      <div class="input-field">
+        <label>Author: {{this.draft.author}}</label>
+      </div>
+      <br/>
+      <button class="submit-button" type="submit">Save edits</button>
+    </form>
+  }
   <button (click)="return()">Go back</button>
 </div>

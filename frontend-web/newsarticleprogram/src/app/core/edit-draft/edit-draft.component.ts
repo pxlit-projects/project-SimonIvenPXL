@@ -4,7 +4,7 @@ import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angula
 import {Post} from '../../shared/models/post.model';
 import {PostService} from '../../shared/services/post.service';
 import {PostRequest} from '../../shared/models/postRequest.model';
-import {NgIf} from '@angular/common';
+
 import {DraftRequest} from '../../shared/models/draftRequest.model';
 import {Draft} from '../../shared/models/draft.model';
 import {AuthService} from '../../shared/services/auth.service';
@@ -14,9 +14,8 @@ import {AuthService} from '../../shared/services/auth.service';
   standalone: true,
   imports: [
     FormsModule,
-    NgIf,
     ReactiveFormsModule
-  ],
+],
   templateUrl: './edit-draft.component.html',
   styleUrl: './edit-draft.component.css'
 })

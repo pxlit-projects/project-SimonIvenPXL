@@ -2,7 +2,7 @@ import {Component, OnInit, inject} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthService} from '../../shared/services/auth.service';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Location, NgIf} from '@angular/common';
+import { Location } from '@angular/common';
 import {Post} from '../../shared/models/post.model';
 import {PostService} from '../../shared/services/post.service';
 import {ReviewRequest} from '../../shared/models/reviewRequest.model';
@@ -12,9 +12,8 @@ import {ReviewService} from '../../shared/services/review.service';
   selector: 'app-add-review',
   standalone: true,
   imports: [
-    ReactiveFormsModule,
-    NgIf
-  ],
+    ReactiveFormsModule
+],
   templateUrl: './add-review.component.html',
   styleUrl: './add-review.component.css'
 })

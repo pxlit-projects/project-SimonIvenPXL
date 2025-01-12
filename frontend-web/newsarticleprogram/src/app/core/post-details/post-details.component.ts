@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {PostService} from '../../shared/services/post.service';
 import {Post} from '../../shared/models/post.model';
 import {AuthService} from '../../shared/services/auth.service';
-import {CommonModule, NgIf} from '@angular/common';
+
 import {PostStatus} from '../../shared/models/postStatus.model';
 import {Comment} from '../../shared/models/comment.model';
 import {CommentService} from '../../shared/services/comment.service';
@@ -16,13 +16,11 @@ import {MatButtonModule} from '@angular/material/button';
   selector: 'app-post-details',
   standalone: true,
   imports: [
-    NgIf,
     FormsModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule,
-    CommonModule
-  ],
+    MatButtonModule
+],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css'
 })

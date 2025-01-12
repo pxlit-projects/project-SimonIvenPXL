@@ -4,26 +4,24 @@ import {Post} from '../../shared/models/post.model';
 import {PostService} from '../../shared/services/post.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../../shared/services/auth.service';
-import {NgIf} from '@angular/common';
+
 import {FormsModule} from '@angular/forms';
 import {PostStatus} from '../../shared/models/postStatus.model';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import {CommonModule} from '@angular/common';
+
 
 
 @Component({
   selector: 'app-post-overview',
   standalone: true,
   imports: [
-    NgIf,
     FormsModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule,
-    CommonModule
-  ],
+    MatButtonModule
+],
   templateUrl: './post-overview.component.html',
   styleUrl: './post-overview.component.css'
 })

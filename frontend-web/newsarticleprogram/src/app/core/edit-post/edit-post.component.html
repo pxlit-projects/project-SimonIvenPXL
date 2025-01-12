@@ -1,22 +1,24 @@
 <div>
   <h1>Edit post</h1>
 
-  <form *ngIf="editPostForm" [formGroup]="editPostForm" (ngSubmit)="saveChanges()">
-    <div class="input-field">
-      <label for="title">Title</label>
-      <input class="input" type="text" id="title" name="title" formControlName="title">
-    </div>
-    <br/>
-    <div class="input-field">
-      <label for="content">Content</label>
-      <input class="input" type="text" id="content" name="content" formControlName="content">
-    </div>
-    <br/>
-    <div class="input-field">
-      <label>Author: {{this.post.author}}</label>
-    </div>
-    <br/>
-    <button class="submit-button" type="submit">Save edits</button>
-  </form>
+  @if (editPostForm) {
+    <form [formGroup]="editPostForm" (ngSubmit)="saveChanges()">
+      <div class="input-field">
+        <label for="title">Title</label>
+        <input class="input" type="text" id="title" name="title" formControlName="title">
+      </div>
+      <br/>
+      <div class="input-field">
+        <label for="content">Content</label>
+        <input class="input" type="text" id="content" name="content" formControlName="content">
+      </div>
+      <br/>
+      <div class="input-field">
+        <label>Author: {{this.post.author}}</label>
+      </div>
+      <br/>
+      <button class="submit-button" type="submit">Save edits</button>
+    </form>
+  }
   <button (click)="return()">Go back</button>
 </div>
