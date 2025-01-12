@@ -7,6 +7,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
+import {NotificationService} from '../../shared/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -21,11 +22,12 @@ export class LoginComponent {
   username: string = '';
   role: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private notificationService : NotificationService, private router: Router) {}
 
   login(): void {
     if (this.username && this.role) {
       this.authService.login(this.username, this.role);
+      this.notificationService.connectWebSocket();
       this.router.navigate(['posts']); // Redirect after login
     } else {
       alert('Please fill in all fields.');
