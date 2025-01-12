@@ -1,0 +1,66 @@
+2025-01-12T21:15:01.322+0100 INFO  [main] be.pxl.services.DiscoveryServiceApplication - Starting DiscoveryServiceApplication using Java 22.0.1 with PID 32048 (C:\Users\simon\Desktop\Fullstack Java Project\project-SimonIvenPXL\backend-java\newsarticleprogram\discovery-service\target\classes started by simon in C:\Users\simon\Desktop\Fullstack Java Project\project-SimonIvenPXL\backend-java\newsarticleprogram)
+2025-01-12T21:15:01.323+0100 DEBUG [main] be.pxl.services.DiscoveryServiceApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-01-12T21:15:01.324+0100 INFO  [main] be.pxl.services.DiscoveryServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-12T21:15:01.365+0100 INFO  [main] org.springframework.cloud.config.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8088/
+2025-01-12T21:15:01.366+0100 INFO  [main] org.springframework.cloud.config.client.ConfigServerConfigDataLoader - Located environment: name=discovery-service, profiles=[default], label=null, version=null, state=null
+2025-01-12T21:15:02.187+0100 INFO  [main] org.springframework.cloud.context.scope.GenericScope - BeanFactory id=3ee59d84-666b-375c-93e5-5921d45ff090
+2025-01-12T21:15:02.453+0100 WARN  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-01-12T21:15:02.456+0100 WARN  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-01-12T21:15:02.674+0100 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8061 (http)
+2025-01-12T21:15:02.682+0100 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8061"]
+2025-01-12T21:15:02.684+0100 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-12T21:15:02.684+0100 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-12T21:15:02.756+0100 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-12T21:15:02.756+0100 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1389 ms
+2025-01-12T21:15:03.401+0100 INFO  [main] com.netflix.discovery.provider.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2025-01-12T21:15:03.402+0100 INFO  [main] com.netflix.discovery.provider.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2025-01-12T21:15:03.544+0100 INFO  [main] com.netflix.discovery.provider.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2025-01-12T21:15:03.544+0100 INFO  [main] com.netflix.discovery.provider.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2025-01-12T21:15:04.535+0100 INFO  [main] org.springframework.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-01-12T21:15:04.549+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-01-12T21:15:04.550+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Client configured to neither register nor query for data.
+2025-01-12T21:15:04.552+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1736712904551 with initial instances count: 0
+2025-01-12T21:15:04.593+0100 INFO  [main] com.netflix.eureka.DefaultEurekaServerContext - Initializing ...
+2025-01-12T21:15:04.595+0100 WARN  [main] com.netflix.eureka.cluster.PeerEurekaNodes - The replica size seems to be empty. Check the route 53 DNS Registry
+2025-01-12T21:15:04.604+0100 INFO  [main] com.netflix.eureka.registry.AbstractInstanceRegistry - Finished initializing remote region registries. All known remote regions: []
+2025-01-12T21:15:04.605+0100 INFO  [main] com.netflix.eureka.DefaultEurekaServerContext - Initialized
+2025-01-12T21:15:04.616+0100 INFO  [main] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-01-12T21:15:04.672+0100 INFO  [main] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry - Registering application DISCOVERY-SERVICE with eureka with status UP
+2025-01-12T21:15:04.673+0100 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8061"]
+2025-01-12T21:15:04.681+0100 INFO  [Thread-9] org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap - isAws returned false
+2025-01-12T21:15:04.681+0100 INFO  [Thread-9] org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap - Initialized server context
+2025-01-12T21:15:04.681+0100 INFO  [Thread-9] com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl - Got 1 instances from neighboring DS node
+2025-01-12T21:15:04.681+0100 INFO  [Thread-9] com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl - Renew threshold is: 1
+2025-01-12T21:15:04.682+0100 INFO  [Thread-9] com.netflix.eureka.registry.PeerAwareInstanceRegistryImpl - Changing status to UP
+2025-01-12T21:15:04.683+0100 INFO  [Thread-9] org.springframework.cloud.netflix.eureka.server.EurekaServerInitializerConfiguration - Started Eureka Server
+2025-01-12T21:15:04.688+0100 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8061 (http) with context path '/'
+2025-01-12T21:15:04.689+0100 INFO  [main] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration - Updating port to 8061
+2025-01-12T21:15:04.702+0100 INFO  [main] be.pxl.services.DiscoveryServiceApplication - Started DiscoveryServiceApplication in 4.315 seconds (process running for 4.876)
+2025-01-12T21:15:05.162+0100 INFO  [RMI TCP Connection(1)-192.168.0.106] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-12T21:15:05.162+0100 INFO  [RMI TCP Connection(1)-192.168.0.106] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-01-12T21:15:05.164+0100 INFO  [RMI TCP Connection(1)-192.168.0.106] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-01-12T21:15:12.005+0100 INFO  [http-nio-8061-exec-4] com.netflix.eureka.registry.AbstractInstanceRegistry - Registered instance GATEWAY-SERVICE/PcVanSimon.mshome.net:gateway-service:8083 with status UP (replication=false)
+2025-01-12T21:15:24.221+0100 INFO  [http-nio-8061-exec-2] com.netflix.eureka.registry.AbstractInstanceRegistry - Registered instance POST-SERVICE/PcVanSimon.mshome.net:post-service:8081 with status UP (replication=false)
+2025-01-12T21:15:29.698+0100 INFO  [http-nio-8061-exec-5] com.netflix.eureka.registry.AbstractInstanceRegistry - Registered instance REVIEW-SERVICE/PcVanSimon.mshome.net:review-service:8082 with status UP (replication=false)
+2025-01-12T21:15:32.856+0100 INFO  [http-nio-8061-exec-7] com.netflix.eureka.registry.AbstractInstanceRegistry - Registered instance COMMENT-SERVICE/PcVanSimon.mshome.net:comment-service:8085 with status UP (replication=false)
+2025-01-12T21:15:37.208+0100 INFO  [http-nio-8061-exec-10] com.netflix.eureka.registry.AbstractInstanceRegistry - Registered instance NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084 with status UP (replication=false)
+2025-01-12T21:16:04.683+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-01-12T21:17:04.684+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-01-12T21:18:04.685+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-01-12T21:19:04.685+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-01-12T21:20:04.691+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 5ms
+2025-01-12T21:21:04.695+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 4ms
+2025-01-12T21:22:04.697+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-01-12T21:23:04.697+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-01-12T21:24:04.698+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-01-12T21:25:04.598+0100 WARN  [Eureka-PeerNodesUpdater] com.netflix.eureka.cluster.PeerEurekaNodes - The replica size seems to be empty. Check the route 53 DNS Registry
+2025-01-12T21:25:04.698+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-01-12T21:25:17.467+0100 INFO  [SpringApplicationShutdownHook] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry - Unregistering application DISCOVERY-SERVICE with eureka with status DOWN
+2025-01-12T21:25:17.513+0100 INFO  [SpringApplicationShutdownHook] org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap - Shutting down Eureka Server..
+2025-01-12T21:25:17.513+0100 INFO  [SpringApplicationShutdownHook] com.netflix.eureka.DefaultEurekaServerContext - Shutting down ...
+2025-01-12T21:25:17.514+0100 INFO  [SpringApplicationShutdownHook] com.netflix.eureka.DefaultEurekaServerContext - Shut down
+2025-01-12T21:25:17.515+0100 INFO  [SpringApplicationShutdownHook] org.springframework.cloud.netflix.eureka.server.EurekaServerBootstrap - Eureka Service is now shutdown...
+2025-01-12T21:25:17.517+0100 INFO  [SpringApplicationShutdownHook] com.netflix.eureka.DefaultEurekaServerContext - Shutting down ...
+2025-01-12T21:25:17.518+0100 INFO  [SpringApplicationShutdownHook] com.netflix.eureka.DefaultEurekaServerContext - Shut down
+2025-01-12T21:25:17.529+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2025-01-12T21:25:17.530+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

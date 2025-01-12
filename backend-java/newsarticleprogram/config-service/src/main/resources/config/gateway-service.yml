@@ -13,6 +13,12 @@ spring:
               - "*"
             allowedHeaders:
               - "*"
+            exposedHeaders:
+              - "Upgrade"
+              - "Connection"
+              - "Sec-WebSocket-Accept"
+              - "Sec-WebSocket-Key"
+              - "Sec-WebSocket-Version"
             allowCredentials: true
       discovery:
         locator:
@@ -36,6 +42,14 @@ spring:
             - Path=/comment/**
           filters:
             - RewritePath=/comment/(?<path>.*), /$\{path}
+        - id: notification-websocket
+          uri: lb:ws://notification-service
+          predicates:
+            - Path=/notification-ws/**
+          filters:
+            - RemoveRequestHeader=Sec-WebSocket-Protocol
+            - RemoveRequestHeader=Sec-WebSocket-Extensions
+            - StripPrefix=1
 
 eureka:
   client:
