@@ -592,3 +592,48 @@ Caused by: java.net.ConnectException: Connection refused: getsockopt
 2025-01-12T21:45:02.608+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Unregistering ...
 2025-01-12T21:45:02.626+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084 - deregister  status: 200
 2025-01-12T21:45:02.626+0100 INFO  [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2025-01-12T21:45:06.142+0100 INFO  [main] be.pxl.services.NotificationServiceApplication - Starting NotificationServiceApplication using Java 22.0.1 with PID 3816 (C:\Users\simon\Desktop\Fullstack Java Project\project-SimonIvenPXL\backend-java\newsarticleprogram\notification-service\target\classes started by simon in C:\Users\simon\Desktop\Fullstack Java Project\project-SimonIvenPXL\backend-java\newsarticleprogram)
+2025-01-12T21:45:06.143+0100 DEBUG [main] be.pxl.services.NotificationServiceApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2025-01-12T21:45:06.144+0100 INFO  [main] be.pxl.services.NotificationServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-01-12T21:45:06.179+0100 INFO  [main] org.springframework.cloud.config.client.ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8088/
+2025-01-12T21:45:06.179+0100 INFO  [main] org.springframework.cloud.config.client.ConfigServerConfigDataLoader - Located environment: name=notification-service, profiles=[default], label=null, version=null, state=null
+2025-01-12T21:45:06.989+0100 INFO  [main] org.springframework.cloud.context.scope.GenericScope - BeanFactory id=5a1baa57-6d8c-317c-a5a0-6576ceb3e002
+2025-01-12T21:45:07.075+0100 WARN  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2025-01-12T21:45:07.076+0100 WARN  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2025-01-12T21:45:07.263+0100 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8084 (http)
+2025-01-12T21:45:07.273+0100 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8084"]
+2025-01-12T21:45:07.276+0100 INFO  [main] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-01-12T21:45:07.276+0100 INFO  [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-12T21:45:07.360+0100 INFO  [main] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-01-12T21:45:07.361+0100 INFO  [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1179 ms
+2025-01-12T21:45:08.248+0100 INFO  [main] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-01-12T21:45:08.408+0100 INFO  [main] org.springframework.cloud.netflix.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-01-12T21:45:08.431+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-01-12T21:45:08.435+0100 INFO  [main] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-12T21:45:08.440+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-01-12T21:45:08.442+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-01-12T21:45:08.442+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-01-12T21:45:08.442+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Application is null : false
+2025-01-12T21:45:08.443+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-01-12T21:45:08.443+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-01-12T21:45:08.443+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-01-12T21:45:08.665+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - The response status is 200
+2025-01-12T21:45:08.666+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-01-12T21:45:08.667+0100 INFO  [main] com.netflix.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-01-12T21:45:08.668+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1736714708668 with initial instances count: 5
+2025-01-12T21:45:08.671+0100 INFO  [main] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry - Registering application NOTIFICATION-SERVICE with eureka with status UP
+2025-01-12T21:45:08.672+0100 INFO  [main] com.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1736714708672, current=UP, previous=STARTING]
+2025-01-12T21:45:08.673+0100 INFO  [main] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8084"]
+2025-01-12T21:45:08.673+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084: registering service...
+2025-01-12T21:45:08.692+0100 INFO  [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8084 (http) with context path '/'
+2025-01-12T21:45:08.693+0100 INFO  [main] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration - Updating port to 8084
+2025-01-12T21:45:08.697+0100 INFO  [main] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Starting...
+2025-01-12T21:45:08.698+0100 INFO  [main] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@2ba08f26]]
+2025-01-12T21:45:08.698+0100 INFO  [main] org.springframework.messaging.simp.broker.SimpleBrokerMessageHandler - Started.
+2025-01-12T21:45:08.700+0100 INFO  [main] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5673]
+2025-01-12T21:45:08.709+0100 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient - DiscoveryClient_NOTIFICATION-SERVICE/PcVanSimon.mshome.net:notification-service:8084 - registration status: 204
+2025-01-12T21:45:08.775+0100 INFO  [main] org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#69d2e517:0/SimpleConnection@45375bdf [delegate=amqp://guest@127.0.0.1:5673/, localPort=53649]
+2025-01-12T21:45:08.872+0100 INFO  [main] be.pxl.services.NotificationServiceApplication - Started NotificationServiceApplication in 4.051 seconds (process running for 4.687)
+2025-01-12T21:46:08.353+0100 INFO  [MessageBroker-1] org.springframework.web.socket.config.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2025-01-12T21:50:08.453+0100 INFO  [AsyncResolver-bootstrap-executor-%d] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-01-12T21:55:08.475+0100 INFO  [AsyncResolver-bootstrap-executor-%d] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
