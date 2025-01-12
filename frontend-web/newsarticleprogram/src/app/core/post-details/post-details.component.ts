@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {PostRequest} from '../../shared/models/postRequest.model';
 
 @Component({
   selector: 'app-post-details',
@@ -77,6 +78,11 @@ export class PostDetailsComponent implements OnInit{
 
   editPost(id : number) {
     this.router.navigate([`editor/posts/${id}/edit`]);
+  }
+
+  publishPostOfficially() {
+    let postRequest : PostRequest = new PostRequest(this.post.title, this.post.content, this.post.author, PostStatus.PUBLISHED, this.post.commentIds)
+    this.postService.saveEditsToPost(this.postId, postRequest).subscribe({});
   }
 
   reviewPost(id: number) {

@@ -37,6 +37,14 @@
         Review
       </button>
     }
+    @if (authService.isAdmin()
+      && post.status == PostStatus.READY_TO_PUBLISH
+      && authService.getUser().username == post.author) {
+      <button mat-raised-button color="accent"
+        (click)="publishPostOfficially()">
+        Publish!
+      </button>
+    }
     @if (authService.isUser()) {
       <button mat-raised-button color="primary"
         (click)="addComment(postId)">

@@ -1,6 +1,7 @@
 export enum PostStatus {
   PENDING = "PENDING",
   PUBLISHED = "PUBLISHED",
+  READY_TO_PUBLISH = "READY_TO_PUBLISH",
   REJECTED = "REJECTED",
   DRAFT = "DRAFT"
 }
