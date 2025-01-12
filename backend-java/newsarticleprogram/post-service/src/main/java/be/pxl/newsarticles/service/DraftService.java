@@ -13,6 +13,8 @@ import be.pxl.newsarticles.repository.PostRepository;
 import be.pxl.newsarticles.service.interfaces.IDraftService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -25,9 +27,12 @@ public class DraftService implements IDraftService {
     private final PostDraftRepository postDraftRepository;
     private final PostRepository postRepository;
     private final ModelMapper mapper;
+    private static final Logger logger = LoggerFactory.getLogger(DraftService.class);
+
 
     @Override
     public Draft savePostAsDraft(DraftRequest draftRequest) {
+        logger.info("Saving post as draft");
         Draft draft = Draft.builder()
                 .title(draftRequest.getTitle())
                 .content(draftRequest.getContent())
@@ -36,17 +41,22 @@ public class DraftService implements IDraftService {
                 .savedDate(LocalDateTime.now().withNano(0))
                 .build();
 
+        logger.info("Draft saved!");
         return postDraftRepository.save(draft);
     }
 
     @Override
     public DraftResponse getDraftById(long id) {
+        logger.info("Getting draft by id: {}", id);
         Optional<Draft> draft = postDraftRepository.findById(id);
 
         if (draft.isEmpty()) {
+            logger.info("Something went wrong!");
             throw new ResourceNotFoundException("No post found with ID " + id);
         }
 
+
+        logger.info("Draft found: {}", draft.get());
         return DraftResponse.builder()
                 .id(draft.get().getId())
                 .title(draft.get().getTitle())
@@ -59,17 +69,21 @@ public class DraftService implements IDraftService {
 
     @Override
     public List<DraftResponse> getDrafts() {
+        logger.info("Getting drafts");
         List<Draft> drafts = postDraftRepository.findAll();
 
         if (drafts.isEmpty()) {
+            logger.info("Something went wrong!");
             throw new ResourceNotFoundException("Er zijn nog geen drafts aangemaakt");
         }
 
+        logger.info("Drafts found!");
         return drafts.stream().map(p -> mapper.map(p, DraftResponse.class)).toList();
     }
 
     @Override
     public Draft saveEditsToDraft(long id, DraftRequest draftRequest) {
+        logger.info("Saving edit to draft");
         Draft draft = postDraftRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No post found with ID " + id));
 
         draft.setTitle(draftRequest.getTitle());
@@ -78,11 +92,13 @@ public class DraftService implements IDraftService {
         draft.setStatus(PostStatus.DRAFT);
         draft.setSavedDate(LocalDateTime.now().withNano(0));
 
+        logger.info("Draft saved!");
         return postDraftRepository.save(draft);
     }
 
     @Override
     public Post publishDraft(long id) {
+        logger.info("Publishing draft");
         Draft draft = postDraftRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No post found with ID " + id));
 
         Post response =  Post.builder()
@@ -94,6 +110,7 @@ public class DraftService implements IDraftService {
                 .build();
 
         postDraftRepository.delete(draft);
+        logger.info("Draft published!");
         return postRepository.save(response);
     }
 }
