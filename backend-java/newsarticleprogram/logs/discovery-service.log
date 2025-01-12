@@ -969,3 +969,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2025-01-12T21:57:16.570+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 13ms
 2025-01-12T21:58:16.580+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 10ms
 2025-01-12T21:59:16.584+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-01-12T22:00:16.585+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-01-12T22:01:16.588+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-01-12T22:02:16.382+0100 WARN  [Eureka-PeerNodesUpdater] com.netflix.eureka.cluster.PeerEurekaNodes - The replica size seems to be empty. Check the route 53 DNS Registry
+2025-01-12T22:02:16.597+0100 INFO  [Eureka-EvictionTimer] com.netflix.eureka.registry.AbstractInstanceRegistry - Running the evict task with compensationTime 8ms

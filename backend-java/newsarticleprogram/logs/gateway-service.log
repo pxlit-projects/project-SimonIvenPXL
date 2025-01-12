@@ -1577,3 +1577,4 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2025-01-12T21:54:30.851+0100 INFO  [main] org.springframework.boot.web.embedded.netty.NettyWebServer - Netty started on port 8083 (http)
 2025-01-12T21:54:30.853+0100 INFO  [main] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration - Updating port to 8083
 2025-01-12T21:54:30.889+0100 INFO  [main] be.pxl.services.GatewayServiceApplication - Started GatewayServiceApplication in 3.587 seconds (process running for 4.192)
+2025-01-12T21:59:30.420+0100 INFO  [AsyncResolver-bootstrap-executor-%d] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
