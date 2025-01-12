@@ -74,7 +74,7 @@ public class ReviewService implements IReviewService {
                 .title(postResponse.getTitle())
                 .content(postResponse.getContent())
                 .author(postResponse.getAuthor())
-                .status(PostStatus.PUBLISHED)
+                .status(PostStatus.READY_TO_PUBLISH)
                 .reviewEditor(editor)
                 .reviewReasoning(reasoning)
                 .publishedDate(LocalDateTime.now().withNano(0))

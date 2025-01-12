@@ -4,8 +4,8 @@ services:
     image: rabbitmq:3-management-alpine
     container_name: rabbitmq
     ports:
-      - "5672:5672"
-      - "15672:15672"
+      - "5673:5672"
+      - "15673:15672"
     networks:
       - microservice-network
   postservice_db:
@@ -16,6 +16,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: pxl
       MYSQL_DATABASE: postservice_db
+    networks:
+      - microservice-network
   reviewservice_db:
     container_name: reviewservice_db
     image: mariadb:latest
@@ -24,6 +26,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: pxl
       MYSQL_DATABASE: reviewservice_db
+    networks:
+      - microservice-network
   commentservice_db:
     container_name: commentservice_db
     image: mariadb:latest
@@ -32,3 +36,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: pxl
       MYSQL_DATABASE: commentservice_db
+    networks:
+      - microservice-network
+
+
+networks:
+  microservice-network:
+    driver: bridge
