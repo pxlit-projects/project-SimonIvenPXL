@@ -95,9 +95,9 @@ public class ReviewService implements IReviewService {
 
         try {
             postClient.saveEditsToPost(postId, postRequest);
-        } catch (Exception e) {
+        } catch (ResourceNotFoundException e) {
             logger.info("Something went wrong! Failed to update status!");
-            throw new WrongStatusException("Failed to update post status to PUBLISHED");
+            throw new ResourceNotFoundException("Failed to update post status to PUBLISHED");
         }
 
         Review review = Review.builder()
@@ -139,9 +139,9 @@ public class ReviewService implements IReviewService {
 
         try {
             postClient.saveEditsToPost(postId, postRequest);
-        } catch (Exception e) {
+        } catch (ResourceNotFoundException e) {
             logger.info("Something went wrong! Status could not be edited");
-            throw new WrongStatusException("Failed to update post status to REJECTED");
+            throw new ResourceNotFoundException("Failed to update post status to REJECTED");
         }
 
         Review review = Review.builder()

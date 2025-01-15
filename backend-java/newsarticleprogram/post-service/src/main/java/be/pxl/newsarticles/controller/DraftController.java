@@ -23,16 +23,16 @@ public class DraftController {
 
     @PostMapping
     public ResponseEntity<Draft> savePostAsDraft(@RequestBody DraftRequest draftRequest) {
-        try {
-            return new ResponseEntity<>(draftService.savePostAsDraft(draftRequest), HttpStatus.CREATED);
-        } catch (ResourceNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return new ResponseEntity<>(draftService.savePostAsDraft(draftRequest), HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<DraftResponse>> getDrafts() {
-        return new ResponseEntity<>(draftService.getDrafts(), HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(draftService.getDrafts(), HttpStatus.OK);
+        } catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping(path = "/{id}")
